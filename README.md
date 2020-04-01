@@ -1,24 +1,20 @@
-Quiz web app.
+# Quiz web app
 
 ## Description:
-This is a quiz web app helps users to check their knowledge of CYF study material.
-answer all the questions with multi choice answers and the result will be submitted afterwards.
+This is a quiz web app which helps users to check their knowledge of CYF study material.
 
 ## Installation: 
-    1. Clone files into your local machine using - `git clone https://github.com/CodeYourFuture/project-quiz.git`.
-    2. Run npm install in your local terminal.
-    3. Run npm start to run the app or open `http://localhost:3000` to view it in the browser.
-    4. Add an origin remote pointing to the main CYF repo (to be able to pull updates) by using this code
-       - `git remote add origin https://github.com/CodeYourFuture/project-quiz.git`.
+1. Clone files into your local machine using - `git clone https://github.com/CodeYourFuture/project-quiz.git`.
+2. Run `npm install` in your local terminal.
+3. Run `npm start` to run the app or open `http://localhost:3000` to view it in the browser.
 
-## Table of Contents: 
-    1.HTML/CSS.
+## Table of Quizzes: 
+    1.HTML.
+    2.CSS.
+    3.JavaScript.
 
 ## Running the tests:
     TBC.
-
-## Usage: 
-    Run the quiz app, and test your knowledge with each specific material.
 
 ## Tech Used / Dependencies:
  React.
@@ -43,7 +39,6 @@ For contributors team :
     the README.md.
 
 ## Contributing:
-    1.Coung.
-    2.Vicky.
-    3.Akey.
-    4.Ahmed.
+    1.Vicky
+    2.Akey
+    3.Ahmed
