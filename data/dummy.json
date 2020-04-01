@@ -83,7 +83,7 @@
   },
 
   {
-    "id": 3,
+    "id": 4,
     "text": "What is the correct HTML for adding a background color?",
     "type": "radio",
     "answers": [
@@ -111,7 +111,7 @@
   },
 
   {
-    "id": 3,
+    "id": 5,
     "text": "What is the correct HTML for creating a hyperlink?",
     "type": "radio",
     "answers": [
