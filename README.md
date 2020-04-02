@@ -12,9 +12,9 @@ This is a quiz web app which helps users to check their knowledge of CYF study m
 TBC.
 
 ## Tech Used / Dependencies:
-    1.React.
-    2.HTML.
-    3.CSS.
+*   React
+*   HTML
+*   CSS
 
 ## Feature requests:
 When it comes to creating feature requests, it must be discussed and approved by the team members, therefore please provide as much info as possible to be accepted.
@@ -23,16 +23,16 @@ When it comes to creating feature requests, it must be discussed and approved by
 
 For contributors team :
 
-    1. Clone or pull the latest master repo and create a branch.
-    2. git checkout -b my-new-feature-branch.
-    3. make code changes.
-    4. git add and git commit.
-    5. git push origin my-new-feature-branch
+1. Clone or pull the latest master repo and create a branch.
+2. git checkout -b my-new-feature-branch.
+3. make code changes.
+4. git add and git commit.
+5. git push origin my-new-feature-branch
 
 In regards to any addition or changes to a feature, make sure to update it in
 the README.md.
 
 ## Contributing:
-1.Vicky
-2.Akey
-3.Ahmed
+1. Vicky.
+2. Abdulkadiret.
+3. Ahmed.
