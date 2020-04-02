@@ -8,19 +8,13 @@ This is a quiz web app which helps users to check their knowledge of CYF study m
 2. Run `npm install` in your local terminal.
 3. Run `npm start` to run the app or open `http://localhost:3000` to view it in the browser.
 
-## Table of Quizzes: 
-    1.HTML.
-    2.CSS.
-    3.JavaScript.
-
 ## Running the tests:
-    TBC.
+TBC.
 
 ## Tech Used / Dependencies:
- React.
- HTML.
- CSS.
- Node.
+    1.React.
+    2.HTML.
+    3.CSS.
 
 ## Feature requests:
 When it comes to creating feature requests, it must be discussed and approved by the team members, therefore please provide as much info as possible to be accepted.
@@ -35,10 +29,10 @@ For contributors team :
     4. git add and git commit.
     5. git push origin my-new-feature-branch
 
-    In regards to any addition or changes to a feature, make sure to update it in
-    the README.md.
+In regards to any addition or changes to a feature, make sure to update it in
+the README.md.
 
 ## Contributing:
-    1.Vicky
-    2.Akey
-    3.Ahmed
+1.Vicky
+2.Akey
+3.Ahmed
