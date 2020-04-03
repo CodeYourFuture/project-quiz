@@ -7,22 +7,22 @@
       {
         "id": 1,
         "text": "Hyper text markup language",
-        "isCorrect": "true"
+        "isCorrect": true
       },
       {
         "id": 2,
         "text": "Home tool markup language",
-        "isCorrect": "false"
+        "isCorrect": false
       },
       {
         "id": 3,
         "text": "Hyperlinks text markup language",
-        "isCorrect": "false"
+        "isCorrect": false
       },
       {
         "id": 4,
         "text": "Hyperlinks text language",
-        "isCorrect": "false"
+        "isCorrect": false
       }
     ]
   },
@@ -34,22 +34,22 @@
       {
         "id": 1,
         "text": "heading",
-        "isCorrect": "false"
+        "isCorrect": false
       },
       {
         "id": 2,
         "text": "h1",
-        "isCorrect": "true"
+        "isCorrect": true
       },
       {
         "id": 3,
         "text": "head",
-        "isCorrect": "false"
+        "isCorrect": false
       },
       {
         "id": 4,
         "text": "h6",
-        "isCorrect": "false"
+        "isCorrect": false
       }
     ]
   },
@@ -62,22 +62,22 @@
       {
         "id": 1,
         "text": "break",
-        "isCorrect": "false"
+        "isCorrect": false
       },
       {
         "id": 2,
         "text": "br",
-        "isCorrect": "true"
+        "isCorrect": true
       },
       {
         "id": 3,
         "text": "hr",
-        "isCorrect": "false"
+        "isCorrect": false
       },
       {
         "id": 4,
         "text": "ir",
-        "isCorrect": "false"
+        "isCorrect": false
       }
     ]
   },
@@ -90,22 +90,22 @@
       {
         "id": 1,
         "text": "<background>yellow</background>",
-        "isCorrect": "false"
+        "isCorrect": false
       },
       {
         "id": 2,
         "text": "<body style='background-color:yellow';>",
-        "isCorrect": "true"
+        "isCorrect": true
       },
       {
         "id": 3,
         "text": "<body style='color:yellow';>",
-        "isCorrect": "false"
+        "isCorrect": false
       },
       {
         "id": 4,
         "text": "<body by='yellow'>",
-        "isCorrect": "false"
+        "isCorrect": false
       }
     ]
   },
@@ -118,22 +118,22 @@
       {
         "id": 1,
         "text": "<a name='http://www.w3school.com'>W3School.com</a>",
-        "isCorrect": "false"
+        "isCorrect": false
       },
       {
         "id": 2,
         "text": "<a href='http://www.w3school.com'>W3School.com</a>",
-        "isCorrect": "true"
+        "isCorrect": true
       },
       {
         "id": 3,
         "text": "<a src='http://www.w3school.com'>W3School.com</a>",
-        "isCorrect": "false"
+        "isCorrect": false
       },
       {
         "id": 4,
         "text": "<a url='http://www.w3school.com'>W3School.com</a>",
-        "isCorrect": "false"
+        "isCorrect": false
       }
     ]
   }
