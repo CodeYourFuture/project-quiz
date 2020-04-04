@@ -4,10 +4,10 @@ import data from './data/dummy.json';
 
 const App = () => {
   return (
-    <div className="App">
+    <div>
       <ol>
-        {data.map((question, id) => {
-          return <li key={id}>{question.text}</li>;
+        {data.map(question => {
+          return <li key={question.id}>{question.text}</li>;
         })}
       </ol>
     </div>
