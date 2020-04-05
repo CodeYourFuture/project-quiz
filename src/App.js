@@ -6,11 +6,11 @@ const App = () => {
   return (
     <div>
       <ol>
-        {data.map((question, id) => {
+        {data.map((question) => {
           return <div>
-            <li key={id}>{question.text}</li>
-            <ul>{question.answers.map((answer, id) => {
-              return <li key={id}>{answer.text}</li>
+            <li key={question.id}>{question.text}</li>
+            <ul>{question.answers.map((answer) => {
+              return <li key={answer.id}>{answer.text}</li>
             })}
             </ul>
           </div>
