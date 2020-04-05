@@ -6,8 +6,14 @@ const App = () => {
   return (
     <div>
       <ol>
-        {data.map(question => {
-          return <li key={question.id}>{question.text}</li>;
+        {data.map((question, id) => {
+          return <div>
+            <li key={id}>{question.text}</li>
+            <ul>{question.answers.map((answer, id) => {
+              return <li key={id}>{answer.text}</li>
+            })}
+            </ul>
+          </div>
         })}
       </ol>
     </div>
