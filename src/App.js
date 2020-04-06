@@ -7,25 +7,25 @@ const App = () => {
     <form>
       {data.map(question => {
         return (
-          <fieldset>
-            <legend key={question.id}>{question.text}</legend>
+          <div key={question.id}>
+            <legend>{question.text}</legend>
 
             {question.answers.map(answer => {
               return (
-                <div>
+                <div key={answer.id}>
                   <input
                     type="radio"
                     id={`${question.id}.${answer.id}`}
                     name={question.id}
                     value={answer.id}
                   />
-                  <label for={`${question.id}.${answer.id}`}>
+                  <label htmlFor={`${question.id}.${answer.id}`}>
                     {answer.text}
                   </label>
                 </div>
               );
             })}
-          </fieldset>
+          </div>
         );
       })}
     </form>
