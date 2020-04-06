@@ -4,19 +4,31 @@ import data from './data/dummy.json';
 
 const App = () => {
   return (
-    <div>
-      <ol>
-        {data.map((question) => {
-          return <div>
-            <li key={question.id}>{question.text}</li>
-            <ul>{question.answers.map((answer) => {
-              return <li key={answer.id}>{answer.text}</li>
+    <form>
+      {data.map(question => {
+        return (
+          <fieldset key={question.id}>
+            <legend>{question.text}</legend>
+
+            {question.answers.map(answer => {
+              return (
+                <div key={answer.id}>
+                  <input
+                    type="radio"
+                    id={`${question.id}.${answer.id}`}
+                    name={question.id}
+                    value={answer.id}
+                  />
+                  <label htmlFor={`${question.id}.${answer.id}`}>
+                    {answer.text}
+                  </label>
+                </div>
+              );
             })}
-            </ul>
-          </div>
-        })}
-      </ol>
-    </div>
+          </fieldset>
+        );
+      })}
+    </form>
   );
 };
 
