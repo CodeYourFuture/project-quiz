@@ -7,7 +7,7 @@ const App = () => {
     <form>
       {data.map(question => {
         return (
-          <div key={question.id}>
+          <fieldset key={question.id}>
             <legend>{question.text}</legend>
 
             {question.answers.map(answer => {
@@ -25,7 +25,7 @@ const App = () => {
                 </div>
               );
             })}
-          </div>
+          </fieldset>
         );
       })}
     </form>
