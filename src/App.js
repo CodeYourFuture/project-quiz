@@ -5,11 +5,11 @@ import data from './data/dummy.json';
 const App = () => {
   const [response, setResponse] = useState({});
   const [score, setScore] = useState(0);
+  const [displayScore, setDisplayScore] = useState(false);
 
   const handleResponse = e => {
     const selectedAnswer = { [e.target.name]: e.target.value };
     setResponse({ ...response, ...selectedAnswer });
-    console.log(selectedAnswer);
   };
 
   const checkAnswers = e => {
@@ -24,9 +24,8 @@ const App = () => {
       })
       .filter(item => item).length;
     setScore(handleScore);
+    setDisplayScore(true);
   };
-  // let count = dataset.reduce((n, x) => n + (x === search), 0);
-  // [].reduce((a,b) => (a[b] = a[b] + 1 || 1) && a, {})
 
   return (
     <form onSubmit={checkAnswers}>
@@ -55,6 +54,11 @@ const App = () => {
         );
       })}
       {Object.keys(response).length === data.length && <button>Submit</button>}
+      {displayScore && (
+        <h2>
+          You have got {score} out of {data.length}
+        </h2>
+      )}
     </form>
   );
 };
