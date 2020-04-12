@@ -3,32 +3,31 @@ import './App.scss';
 import data from './data/dummy.json';
 
 const App = () => {
-  const [response, setResponse] = useState({});
+  const [userAnswers, setUserAnswers] = useState({});
   const [score, setScore] = useState(0);
-  const [displayScore, setDisplayScore] = useState(false);
+  const [displayScore, shouldDisplayScore] = useState(false);
 
-  const handleResponse = e => {
+  const handleAnswerSelect = e => {
     const selectedAnswer = { [e.target.name]: e.target.value };
-    setResponse({ ...response, ...selectedAnswer });
+    setUserAnswers({ ...userAnswers, ...selectedAnswer });
   };
 
-  const checkAnswers = e => {
+  const checkUserAnswers = e => {
     e.preventDefault();
-    const handleScore = data
-      .map(question => {
-        const responseAnswerId = response[question.id];
-        const responseObj = question.answers.find(
-          answer => answer.id === Number(responseAnswerId),
-        );
-        return responseObj.isCorrect;
-      })
-      .filter(item => item).length;
-    setScore(handleScore);
-    setDisplayScore(true);
+    const totalScore = data.reduce((accumulator, question) => {
+      const selectedAnswerId = userAnswers[question.id];
+      const selectedAnswerObject = question.answers.find(
+        answer => answer.id === Number(selectedAnswerId),
+      );
+      return selectedAnswerObject.isCorrect ? accumulator + 1 : accumulator;
+    }, 0);
+    console.log(totalScore);
+    setScore(totalScore);
+    shouldDisplayScore(true);
   };
 
   return (
-    <form onSubmit={checkAnswers}>
+    <form onSubmit={checkUserAnswers}>
       {data.map(question => {
         return (
           <fieldset key={question.id}>
@@ -42,7 +41,7 @@ const App = () => {
                     id={`${question.id}.${answer.id}`}
                     name={question.id}
                     value={answer.id}
-                    onClick={handleResponse}
+                    onClick={handleAnswerSelect}
                   />
                   <label htmlFor={`${question.id}.${answer.id}`}>
                     {answer.text}
@@ -53,7 +52,9 @@ const App = () => {
           </fieldset>
         );
       })}
-      {Object.keys(response).length === data.length && <button>Submit</button>}
+      {Object.keys(userAnswers).length === data.length && (
+        <button>Submit</button>
+      )}
       {displayScore && (
         <h2>
           You have got {score} out of {data.length}
