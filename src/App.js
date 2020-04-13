@@ -5,7 +5,7 @@ import data from './data/dummy.json';
 const App = () => {
   const [userAnswers, setUserAnswers] = useState({});
   const [score, setScore] = useState(0);
-  const [displayScore, shouldDisplayScore] = useState(false);
+  const [shouldDisplayScore, setShouldDisplayScore] = useState(false);
 
   const handleAnswerSelect = e => {
     const selectedAnswer = { [e.target.name]: e.target.value };
@@ -14,16 +14,15 @@ const App = () => {
 
   const checkUserAnswers = e => {
     e.preventDefault();
-    const totalScore = data.reduce((accumulator, question) => {
+    const totalScore = data.reduce((point, question) => {
       const selectedAnswerId = userAnswers[question.id];
-      const selectedAnswerObject = question.answers.find(
+      const selectedAnswerObj = question.answers.find(
         answer => answer.id === Number(selectedAnswerId),
       );
-      return selectedAnswerObject.isCorrect ? accumulator + 1 : accumulator;
+      return selectedAnswerObj.isCorrect ? point + 1 : point;
     }, 0);
-    console.log(totalScore);
     setScore(totalScore);
-    shouldDisplayScore(true);
+    setShouldDisplayScore(true);
   };
 
   return (
@@ -55,7 +54,7 @@ const App = () => {
       {Object.keys(userAnswers).length === data.length && (
         <button>Submit</button>
       )}
-      {displayScore && (
+      {shouldDisplayScore && (
         <h2>
           You have got {score} out of {data.length}
         </h2>
