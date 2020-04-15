@@ -1,6 +1,15 @@
 import React, { useState } from 'react';
 import './App.scss';
 import data from './data/dummy.json';
+import {
+  Button,
+  Card,
+  Container,
+  Col,
+  Jumbotron,
+  Form,
+  Badge,
+} from 'react-bootstrap';
 
 const App = () => {
   const [userAnswers, setUserAnswers] = useState({});
@@ -26,40 +35,61 @@ const App = () => {
   };
 
   return (
-    <form onSubmit={checkUserAnswers}>
-      {data.map(question => {
-        return (
-          <fieldset key={question.id}>
-            <legend>{question.text}</legend>
-
-            {question.answers.map(answer => {
-              return (
-                <div key={answer.id}>
-                  <input
-                    type="radio"
-                    id={`${question.id}.${answer.id}`}
-                    name={question.id}
-                    value={answer.id}
-                    onClick={handleAnswerSelect}
-                  />
-                  <label htmlFor={`${question.id}.${answer.id}`}>
-                    {answer.text}
-                  </label>
-                </div>
-              );
-            })}
-          </fieldset>
-        );
-      })}
-      {Object.keys(userAnswers).length === data.length && (
-        <button>Submit</button>
-      )}
-      {shouldDisplayScore && (
-        <h2>
-          You have got {score} out of {data.length}
-        </h2>
-      )}
-    </form>
+    <Container>
+      <h1 className="text-center">
+        <Badge variant="secondary">CYF Quiz</Badge>
+      </h1>
+      <Form onSubmit={checkUserAnswers}>
+        {data.map(question => {
+          return (
+            <Card>
+              <Form.Group key={question.id}>
+                <Jumbotron>{question.text}</Jumbotron>
+                {question.answers.map(answer => {
+                  return (
+                    <Container>
+                      <Form.Check type="radio">
+                        <hr />
+                        <Form.Row key={answer.id}>
+                          <Form.Label
+                            as={Col}
+                            htmlFor={`${question.id}.${answer.id}`}
+                            aria-label="radio"
+                          >
+                            <Form.Check.Input
+                              type="radio"
+                              id={`${question.id}.${answer.id}`}
+                              name={question.id}
+                              value={answer.id}
+                              onClick={handleAnswerSelect}
+                            />
+                            {answer.text}
+                          </Form.Label>
+                        </Form.Row>
+                      </Form.Check>
+                    </Container>
+                  );
+                })}
+              </Form.Group>
+            </Card>
+          );
+        })}
+        {shouldDisplayScore && (
+          <h2 className="text-center d-flex justify-content-center">
+            <Badge variant="secondary">
+              You have got {score} out of {data.length}
+            </Badge>
+          </h2>
+        )}
+        {Object.keys(userAnswers).length === data.length && (
+          <span className="d-flex justify-content-center">
+            <Button variant="primary" type="submit">
+              Submit
+            </Button>
+          </span>
+        )}
+      </Form>
+    </Container>
   );
 };
 
