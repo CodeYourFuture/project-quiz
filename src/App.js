@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import './App.scss';
 import data from './data/dummy.json';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Button, Form, Container, Row, Col, Jumbotron } from 'react-bootstrap'
+import { Button, Form, Container, Row, Jumbotron } from 'react-bootstrap'
 
 const App = () => {
   const [userAnswers, setUserAnswers] = useState({});
@@ -29,36 +28,35 @@ const App = () => {
 
   return (
     <Container>
-      <Row>
-        <Col> <h1 style={{ textAlign: "center" }} >CYF Quiz</h1>  </Col>
-      </Row>
+      <h1>CYF Quiz</h1>
       <Form onSubmit={checkUserAnswers}>
         {data.map(question => {
           return (
-            <Jumbotron>
-              <Form.Group key={question.id}>
-                <legend>{question.text}</legend>
-                {question.answers.map(answer => {
-                  return (
-                    <div key={answer.id}>
+            <fieldset key={question.id}>
+              <Jumbotron>
+                <h2>{question.text}</h2>
+                <Form.Group key={question.id}>
+                  {question.answers.map(answer => {
+                    return (
                       <Form.Check
+                        key={answer.id}
                         type={question.type}
                         id={`${question.id}.${answer.id}`}
                         name={question.id}
                         value={answer.id}
                         onClick={handleAnswerSelect}
-                        label={`${question.id}.${answer.id}`, `${answer.text}`}
+                        label={`${answer.text}`}
                       />
-                    </div>
-                  );
-                })}
-              </Form.Group>
-            </Jumbotron>
+                    );
+                  })}
+                </Form.Group>
+              </Jumbotron>
+            </fieldset>
           );
         })}
         {shouldDisplayScore && (
           <Jumbotron>
-            <h2 style={{ textAlign: "center" }} > You have got {score} out of {data.length} </h2>
+            <h2> You have got {score} out of {data.length} </h2>
           </Jumbotron>
         )}
         {Object.keys(userAnswers).length === data.length && (
