@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Routes from './routes';
 import './App.scss';
 import data from './data/dummy.json';
-import { Button, Form, Container, Row, Jumbotron } from 'react-bootstrap'
+import { Button, Form, Container, Jumbotron } from 'react-bootstrap';
 
 const App = () => {
   const [userAnswers, setUserAnswers] = useState({});
@@ -56,13 +58,22 @@ const App = () => {
         })}
         {shouldDisplayScore && (
           <Jumbotron>
-            <h2> You have got {score} out of {data.length} </h2>
+            <h2>
+              {' '}
+              You have got {score} out of {data.length}{' '}
+            </h2>
           </Jumbotron>
         )}
         {Object.keys(userAnswers).length === data.length && (
-          <Button variant="primary" type="submit" >Submit</Button>
+          <Button variant="primary" type="submit">
+            Submit
+          </Button>
         )}
       </Form>
+
+      <Router>
+        <Routes />
+      </Router>
     </Container>
   );
 };
