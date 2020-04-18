@@ -56,8 +56,7 @@ const Quiz = () => {
         {shouldDisplayScore && (
           <Jumbotron>
             <h2>
-              {' '}
-              You have got {score} out of {data.length}{' '}
+              You have got {score} out of {data.length}
             </h2>
           </Jumbotron>
         )}
