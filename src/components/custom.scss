@@ -1,0 +1,25 @@
+a.social {
+  margin: 0 0;
+  transition: transform 200ms;
+  display: inline-block;
+}
+
+a.social:hover {
+  transform: translateY(-1px);
+}
+
+a.linkedin {
+  color: white;
+}
+
+a.github {
+  color: white;
+}
+
+hr.clearfix {
+  background-color: white;
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+  width: 100%;
+  padding-right: 1rem;
+}
