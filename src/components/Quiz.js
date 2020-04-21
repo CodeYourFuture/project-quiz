@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import data from '../data/dummy.json';
 import { Button, Form, Container, Jumbotron } from 'react-bootstrap';
+import Question from './Question';
 
 const Quiz = () => {
   const [userAnswers, setUserAnswers] = useState({});
@@ -31,26 +32,11 @@ const Quiz = () => {
       <Form onSubmit={checkUserAnswers}>
         {data.map(question => {
           return (
-            <fieldset key={question.id}>
-              <Jumbotron>
-                <h2>{question.text}</h2>
-                <Form.Group key={question.id}>
-                  {question.answers.map(answer => {
-                    return (
-                      <Form.Check
-                        key={answer.id}
-                        type={question.type}
-                        id={`${question.id}.${answer.id}`}
-                        name={question.id}
-                        value={answer.id}
-                        onClick={handleAnswerSelect}
-                        label={`${answer.text}`}
-                      />
-                    );
-                  })}
-                </Form.Group>
-              </Jumbotron>
-            </fieldset>
+            <Question
+              key={question.id}
+              question={question}
+              handleAnswerSelect={handleAnswerSelect}
+            />
           );
         })}
         {shouldDisplayScore && (
