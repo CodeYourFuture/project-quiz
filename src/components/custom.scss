@@ -23,3 +23,20 @@ hr.clearfix {
   width: 100%;
   padding-right: 1rem;
 }
+
+#container {
+  min-height: 100vh;
+  position: relative;
+}
+
+#main {
+  overflow: auto;
+  padding-bottom: 126px;
+}
+
+footer {
+  position: absolute;
+  margin-top: -126px;
+  width: 100%;
+  bottom: 0;
+}
