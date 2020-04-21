@@ -4,6 +4,12 @@ import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 import './custom.scss';
 
 const Footer = () => {
+  const currentYear = () => {
+    const today = new Date();
+    const year = today.getFullYear();
+    return year;
+  };
+
   return (
     <footer className="font-small blue bg-primary pt-2">
       <div className="container-fluid text-center text-md-left">
@@ -93,7 +99,9 @@ const Footer = () => {
       </div>
 
       <div className="bg-info text-white text-center py-2">
-        <small>Copyright &copy; 2020, CYF Scot Quiz Project</small>
+        <small>
+          Copyright &copy; {`${currentYear()}`}, CYF Scot Quiz Project
+        </small>
       </div>
     </footer>
   );
