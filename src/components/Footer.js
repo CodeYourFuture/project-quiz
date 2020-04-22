@@ -27,6 +27,7 @@ const Footer = () => {
                       className="github social"
                       href="https://github.com/CodeYourFuture/project-quiz/"
                       target="_blank"
+                      rel="noopener noreferrer"
                     >
                       <FontAwesomeIcon
                         aria-hidden="false"
@@ -56,6 +57,7 @@ const Footer = () => {
                           className="linkedin social"
                           href="https://www.linkedin.com/in/viktoriia-kosenko-030983168/"
                           target="_blank"
+                          rel="noopener noreferrer"
                         >
                           <FontAwesomeIcon
                             aria-hidden="false"
@@ -73,6 +75,7 @@ const Footer = () => {
                           className="linkedin social"
                           href="https://www.linkedin.com/mwlite/in/ahmed8merehil"
                           target="_blank"
+                          rel="noopener noreferrer"
                         >
                           <FontAwesomeIcon
                             aria-hidden="false"
@@ -90,6 +93,7 @@ const Footer = () => {
                           className="linkedin social"
                           href="https://www.linkedin.com/in/abdulkadir-awel-23781a1a4/"
                           target="_blank"
+                          rel="noopener noreferrer"
                         >
                           <FontAwesomeIcon
                             aria-hidden="false"
@@ -103,7 +107,12 @@ const Footer = () => {
                     </li>
                     <li>
                       <p className="mt-0 mb-1">
-                        <a className="linkedin social" href="#" target="_blank">
+                        <a
+                          className="linkedin social"
+                          href="#"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
                           <FontAwesomeIcon
                             aria-hidden="false"
                             aria-label="Linkedin icon"
