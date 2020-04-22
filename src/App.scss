@@ -4,36 +4,24 @@ a.social {
   margin: 0 0;
   transition: transform 200ms;
   display: inline-block;
-}
-
-a.social:hover {
-  transform: translateY(-1px);
+  &:hover {
+    transform: translateY(-2px);
+    text-decoration: none;
+    color: white;
+  }
 }
 
 a.linkedin {
-  color: white;
+  color: #c1c1ff;
 }
 
 a.github {
-  color: white;
-}
-
-hr.clearfix {
-  background-color: white;
-  margin-top: 0rem;
-  margin-bottom: 0rem;
-  width: 100%;
-  padding-right: 1rem;
-}
-
-.container {
-  overflow: auto;
-  padding-bottom: 126px;
+  color: #c1c1ff;
 }
 
 footer {
   position: absolute;
-  margin-top: -126px;
+  margin-top: -200px;
   width: 100%;
   bottom: 0;
 }
