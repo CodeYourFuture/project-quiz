@@ -47,7 +47,6 @@ const Footer = () => {
                   className="mr-2"
                   aria-hidden="true"
                   icon={faLinkedin}
-                  size="1x"
                 />
                 Vicky
               </a>
@@ -63,7 +62,6 @@ const Footer = () => {
                   className="mr-2"
                   aria-hidden="true"
                   icon={faLinkedin}
-                  size="1x"
                 />
                 Ahmed
               </a>
@@ -79,7 +77,6 @@ const Footer = () => {
                   className="mr-2"
                   aria-hidden="true"
                   icon={faLinkedin}
-                  size="1x"
                 />
                 Abdulkadir
               </a>
@@ -95,7 +92,6 @@ const Footer = () => {
                   className="mr-2"
                   aria-hidden="true"
                   icon={faLinkedin}
-                  size="1x"
                 />
                 Ali
               </a>
@@ -106,7 +102,7 @@ const Footer = () => {
       <section className="bg-info text-center py-2">
         <p className="mb-0">
           <small>
-            Copyright &copy; {`${currentYear()}`}, CYF Scot Quiz Project{' '}
+            Copyright &copy; {`${currentYear()}`}, CYF Scot Quiz Project
           </small>
         </p>
       </section>
