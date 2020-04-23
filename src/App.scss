@@ -7,21 +7,5 @@ a.social {
   &:hover {
     transform: translateY(-2px);
     text-decoration: none;
-    color: white;
   }
-}
-
-a.linkedin {
-  color: #c1c1ff;
-}
-
-a.github {
-  color: #c1c1ff;
-}
-
-footer {
-  position: absolute;
-  margin-top: -200px;
-  width: 100%;
-  bottom: 0;
 }
