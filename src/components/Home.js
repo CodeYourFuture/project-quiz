@@ -15,8 +15,8 @@ const Home = props => {
       <section className="align-self-center text-center">
         <ul className="list-unstyled">
           <li> HTML <Button href="Quiz" > HTML</Button> </li>
-          <li> CSS  <Button href="./Quiz" > CSS</Button> </li>
-          <li> JavaScript <Button href="./Quiz"> JavaScript</Button> </li>
+          <li> CSS  <Button href="Quiz" > CSS</Button> </li>
+          <li> JavaScript <Button href="Quiz"> JavaScript</Button> </li>
         </ul>
       </section>
     </main>
