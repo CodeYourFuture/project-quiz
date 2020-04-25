@@ -8,6 +8,7 @@ const Quiz = () => {
   const [score, setScore] = useState(0);
   const [shouldDisplayScore, setShouldDisplayScore] = useState(false);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+
   const handleAnswerSelect = e => {
     const selectedAnswer = { [e.target.name]: Number(e.target.value) };
     setUserAnswers({ ...userAnswers, ...selectedAnswer });
@@ -35,7 +36,20 @@ const Quiz = () => {
           question={data[currentQuestionIndex]}
           handleAnswerSelect={handleAnswerSelect}
         />
-
+        <Button
+          variant="secondary"
+          disabled={currentQuestionIndex === 0}
+          onClick={() => setCurrentQuestionIndex(currentQuestionIndex - 1)}
+        >
+          Previous
+        </Button>
+        <Button
+          variant="secondary"
+          disabled={currentQuestionIndex === data.length - 1}
+          onClick={() => setCurrentQuestionIndex(currentQuestionIndex + 1)}
+        >
+          Next
+        </Button>
         {shouldDisplayScore && (
           <Jumbotron>
             <h2>
