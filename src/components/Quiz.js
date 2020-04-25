@@ -7,9 +7,9 @@ const Quiz = () => {
   const [userAnswers, setUserAnswers] = useState({});
   const [score, setScore] = useState(0);
   const [shouldDisplayScore, setShouldDisplayScore] = useState(false);
-
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const handleAnswerSelect = e => {
-    const selectedAnswer = { [e.target.name]: e.target.value };
+    const selectedAnswer = { [e.target.name]: Number(e.target.value) };
     setUserAnswers({ ...userAnswers, ...selectedAnswer });
   };
 
@@ -18,7 +18,7 @@ const Quiz = () => {
     const totalScore = data.reduce((point, question) => {
       const selectedAnswerId = userAnswers[question.id];
       const selectedAnswerObj = question.answers.find(
-        answer => answer.id === Number(selectedAnswerId),
+        answer => answer.id === selectedAnswerId,
       );
       return selectedAnswerObj.isCorrect ? point + 1 : point;
     }, 0);
@@ -30,15 +30,12 @@ const Quiz = () => {
     <Container>
       <h1>CYF Quiz</h1>
       <Form onSubmit={checkUserAnswers}>
-        {data.map(question => {
-          return (
-            <Question
-              key={question.id}
-              question={question}
-              handleAnswerSelect={handleAnswerSelect}
-            />
-          );
-        })}
+        <Question
+          key={data[currentQuestionIndex].id}
+          question={data[currentQuestionIndex]}
+          handleAnswerSelect={handleAnswerSelect}
+        />
+
         {shouldDisplayScore && (
           <Jumbotron>
             <h2>
