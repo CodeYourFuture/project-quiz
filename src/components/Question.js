@@ -1,7 +1,7 @@
 import React from 'react';
 import { Form, Jumbotron } from 'react-bootstrap';
 
-const Question = ({ question, handleAnswerSelect }) => {
+const Question = ({ question, handleAnswerSelect, selectedAnswer }) => {
   return (
     <fieldset>
       <Jumbotron>
@@ -17,6 +17,7 @@ const Question = ({ question, handleAnswerSelect }) => {
                 value={answer.id}
                 onClick={handleAnswerSelect}
                 label={`${answer.text}`}
+                defaultChecked={answer.id === selectedAnswer}
               />
             );
           })}

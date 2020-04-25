@@ -35,8 +35,10 @@ const Quiz = () => {
           key={data[currentQuestionIndex].id}
           question={data[currentQuestionIndex]}
           handleAnswerSelect={handleAnswerSelect}
+          selectedAnswer={userAnswers[data[currentQuestionIndex].id]}
         />
         <Button
+          className="mr-2 mb-4"
           variant="secondary"
           disabled={currentQuestionIndex === 0}
           onClick={() => setCurrentQuestionIndex(currentQuestionIndex - 1)}
@@ -44,6 +46,7 @@ const Quiz = () => {
           Previous
         </Button>
         <Button
+          className="mr-2 mb-4"
           variant="secondary"
           disabled={currentQuestionIndex === data.length - 1}
           onClick={() => setCurrentQuestionIndex(currentQuestionIndex + 1)}
@@ -58,7 +61,7 @@ const Quiz = () => {
           </Jumbotron>
         )}
         {Object.keys(userAnswers).length === data.length && (
-          <Button variant="primary" type="submit">
+          <Button className="mb-4" variant="primary" type="submit">
             Submit
           </Button>
         )}
