@@ -1,22 +1,18 @@
-import React from "react";
-import { Button } from "react-bootstrap";
+import React from 'react';
+import { Button } from 'react-bootstrap';
 
-
-const Home = props => {
+const Home = () => {
   return (
-    <main className="d-flex flex-column justify-content-center ">
-      <section className="align-self-center text-center">
-        <h1> {"{...}"} </h1>
-        <h2> Hello Coder ! </h2>
-        <h3> Are you ready for the next challenge ?
-        <p> Take a Quiz </p>
-        </h3>
-      </section>
-      <section className="align-self-center text-center">
+    <main className="text-center">
+      <section>
+        <h2>{"{ CYF Quiz }"}</h2>
+        <p>Hello Coder !<br />
+        Are you ready for the next challenge ?<br />
+        Take a quiz !</p>
         <ul className="list-unstyled">
-          <li> HTML <Button href="Quiz" > HTML</Button> </li>
-          <li> CSS  <Button href="Quiz" > CSS</Button> </li>
-          <li> JavaScript <Button href="Quiz"> JavaScript</Button> </li>
+          <li className="mb-3"><Button href="Quiz">HTML</Button></li>
+          <li className="mb-3"><Button href="Quiz">CSS</Button></li>
+          <li className="mb-3"><Button href="Quiz">JavaScript</Button></li>
         </ul>
       </section>
     </main>
