@@ -7,9 +7,10 @@ const Quiz = () => {
   const [userAnswers, setUserAnswers] = useState({});
   const [score, setScore] = useState(0);
   const [shouldDisplayScore, setShouldDisplayScore] = useState(false);
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 
   const handleAnswerSelect = e => {
-    const selectedAnswer = { [e.target.name]: e.target.value };
+    const selectedAnswer = { [e.target.name]: Number(e.target.value) };
     setUserAnswers({ ...userAnswers, ...selectedAnswer });
   };
 
@@ -18,27 +19,40 @@ const Quiz = () => {
     const totalScore = data.reduce((point, question) => {
       const selectedAnswerId = userAnswers[question.id];
       const selectedAnswerObj = question.answers.find(
-        answer => answer.id === Number(selectedAnswerId),
+        answer => answer.id === selectedAnswerId,
       );
       return selectedAnswerObj.isCorrect ? point + 1 : point;
     }, 0);
     setScore(totalScore);
     setShouldDisplayScore(true);
   };
-
+  const question = data[currentQuestionIndex];
   return (
     <Container>
       <h1>CYF Quiz</h1>
       <Form onSubmit={checkUserAnswers}>
-        {data.map(question => {
-          return (
-            <Question
-              key={question.id}
-              question={question}
-              handleAnswerSelect={handleAnswerSelect}
-            />
-          );
-        })}
+        <Question
+          key={question.id}
+          question={question}
+          handleAnswerSelect={handleAnswerSelect}
+          selectedAnswer={userAnswers[question.id]}
+        />
+        <Button
+          className="mr-2 mb-4"
+          variant="secondary"
+          disabled={currentQuestionIndex === 0}
+          onClick={() => setCurrentQuestionIndex(currentQuestionIndex - 1)}
+        >
+          Previous
+        </Button>
+        <Button
+          className="mr-2 mb-4"
+          variant="primary"
+          disabled={currentQuestionIndex === data.length - 1}
+          onClick={() => setCurrentQuestionIndex(currentQuestionIndex + 1)}
+        >
+          Next
+        </Button>
         {shouldDisplayScore && (
           <Jumbotron>
             <h2>
@@ -47,7 +61,7 @@ const Quiz = () => {
           </Jumbotron>
         )}
         {Object.keys(userAnswers).length === data.length && (
-          <Button variant="primary" type="submit">
+          <Button className="mb-4" variant="primary" type="submit">
             Submit
           </Button>
         )}
