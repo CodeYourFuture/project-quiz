@@ -17,7 +17,7 @@ const Question = ({ question, handleAnswerSelect, selectedAnswer }) => {
                 value={answer.id}
                 onClick={handleAnswerSelect}
                 label={`${answer.text}`}
-                defaultChecked={answer.id === selectedAnswer}
+                checked={answer.id === selectedAnswer}
               />
             );
           })}

@@ -26,16 +26,16 @@ const Quiz = () => {
     setScore(totalScore);
     setShouldDisplayScore(true);
   };
-
+  const question = data[currentQuestionIndex];
   return (
     <Container>
       <h1>CYF Quiz</h1>
       <Form onSubmit={checkUserAnswers}>
         <Question
-          key={data[currentQuestionIndex].id}
-          question={data[currentQuestionIndex]}
+          key={question.id}
+          question={question}
           handleAnswerSelect={handleAnswerSelect}
-          selectedAnswer={userAnswers[data[currentQuestionIndex].id]}
+          selectedAnswer={userAnswers[question.id]}
         />
         <Button
           className="mr-2 mb-4"
@@ -47,7 +47,7 @@ const Quiz = () => {
         </Button>
         <Button
           className="mr-2 mb-4"
-          variant="secondary"
+          variant="primary"
           disabled={currentQuestionIndex === data.length - 1}
           onClick={() => setCurrentQuestionIndex(currentQuestionIndex + 1)}
         >
