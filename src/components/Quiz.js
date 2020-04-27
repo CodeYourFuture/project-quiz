@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import data from '../data/dummy.json';
 import { Button, Form, Container, Jumbotron } from 'react-bootstrap';
 import Question from './Question';
+import { shuffle } from '../helpers/shuffle';
+
+data.forEach(question => shuffle(question.answers));
+shuffle(data);
 
 const Quiz = () => {
   const [userAnswers, setUserAnswers] = useState({});
