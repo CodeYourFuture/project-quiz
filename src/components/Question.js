@@ -15,7 +15,7 @@ const Question = ({ question, handleAnswerSelect, selectedAnswer }) => {
                 id={`${question.id}.${answer.id}`}
                 name={question.id}
                 value={answer.id}
-                onClick={handleAnswerSelect}
+                onChange={handleAnswerSelect}
                 label={`${answer.text}`}
                 checked={answer.id === selectedAnswer}
               />
