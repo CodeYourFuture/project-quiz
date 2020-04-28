@@ -4,14 +4,14 @@ import { Button } from 'react-bootstrap';
 const Home = () => {
   return (
     <main className="text-center">
-      <h1>{"CYF Quiz"}</h1>
-      <p>Hello Coder !</p>
-      <p>Are you ready for the next challenge?</p>
-      <p>Take a quiz!</p>
-      <ul className="list-unstyled">
-        <li className="mb-1"><Button href="quiz">HTML</Button></li>
-        <li className="mb-1"><Button href="quiz">CSS</Button></li>
-        <li className="mb-1"><Button href="quiz">JavaScript</Button></li>
+      <h1>CYF Quiz</h1>
+      <p className="mb-0 py-0 h3 mt-4">Hello Coder !</p>
+      <p className="mb-0 py-0 h3">Are you ready for the next challenge?</p>
+      <p className="mb-0 py-0 h3">Take a quiz!</p>
+      <ul className="list-unstyled my-4">
+        <li><Button className="mb-2 btn-block w-25 mx-auto font-weight-bold" href="quiz">HTML</Button></li>
+        <li><Button className="mb-2 btn-block w-25 mx-auto font-weight-bold" href="quiz">CSS</Button></li>
+        <li><Button className="mb-2 btn-block w-25 mx-auto font-weight-bold" href="quiz">JavaScript</Button></li>
       </ul>
     </main>
   );
