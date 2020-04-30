@@ -1,0 +1,140 @@
+[
+  {
+    "id": 1,
+    "text": "Inside which HTML element do we put the JavaScript??",
+    "type": "radio",
+    "answers": [
+      {
+        "id": 1,
+        "text": "<script>",
+        "isCorrect": true
+      },
+      {
+        "id": 2,
+        "text": "<scripting>",
+        "isCorrect": false
+      },
+      {
+        "id": 3,
+        "text": "<style>",
+        "isCorrect": false
+      },
+      {
+        "id": 4,
+        "text": "<js>",
+        "isCorrect": false
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "text": "What is the correct JavaScript syntax to change the content of the HTML element below? <p id='demo'>This is a demonstration.</p>",
+    "type": "radio",
+    "answers": [
+      {
+        "id": 1,
+        "text": "document.getElementById('demo').innerHTML='Hello World!;",
+        "isCorrect": true
+      },
+      {
+        "id": 2,
+        "text": "document.getElement('p').innerHTML='Hello World!;",
+        "isCorrect": false
+      },
+      {
+        "id": 3,
+        "text": "document.getElementByName('p').innerHTML='Hello World!;",
+        "isCorrect": false
+      },
+      {
+        "id": 4,
+        "text": "demo.innerHTML='Hello World!;",
+        "isCorrect": false
+      }
+    ]
+  },
+
+  {
+    "id": 3,
+    "text": " Which of the following function of Array object creates a new array with all of the elements of this array for which the provided filtering function returns true?",
+    "type": "radio",
+    "answers": [
+      {
+        "id": 1,
+        "text": "concat()",
+        "isCorrect": false
+      },
+      {
+        "id": 2,
+        "text": "every()",
+        "isCorrect": false
+      },
+      {
+        "id": 3,
+        "text": "some()",
+        "isCorrect": false
+      },
+      {
+        "id": 4,
+        "text": "filter()",
+        "isCorrect": true
+      }
+    ]
+  },
+
+  {
+    "id": 4,
+    "text": "What is the correct syntax for referring to an external script called 'xxx.js'?",
+    "type": "radio",
+    "answers": [
+      {
+        "id": 1,
+        "text": "<script name='xxx.js'>",
+        "isCorrect": false
+      },
+      {
+        "id": 2,
+        "text": "<script src='xxx.js'>",
+        "isCorrect": true
+      },
+      {
+        "id": 3,
+        "text": "<script href='xxx.js'>",
+        "isCorrect": false
+      },
+      {
+        "id": 4,
+        "text": "<script url='xxx.js'>",
+        "isCorrect": false
+      }
+    ]
+  },
+
+  {
+    "id": 5,
+    "text": "How do you create a function in JavaScript?",
+    "type": "radio",
+    "answers": [
+      {
+        "id": 1,
+        "text": "function = myFunction()",
+        "isCorrect": false
+      },
+      {
+        "id": 2,
+        "text": "function myFunction()",
+        "isCorrect": true
+      },
+      {
+        "id": 3,
+        "text": "function:myFunction()",
+        "isCorrect": false
+      },
+      {
+        "id": 4,
+        "text": "function myFunction =()",
+        "isCorrect": false
+      }
+    ]
+  }
+]
