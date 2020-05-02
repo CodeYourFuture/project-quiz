@@ -1,12 +1,12 @@
 import React from "react";
 import { Button, Jumbotron } from 'react-bootstrap';
 
-const Result = ({ score }) => {
+const Result = ({ score, NumOfQuestions }) => {
   return (
     <div>
       <Jumbotron>
         <h2>
-          You have got {score} out of {data.length}
+          You have got {score} out of {NumOfQuestions}
         </h2>
       </Jumbotron>
       <Button
