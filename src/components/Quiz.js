@@ -38,7 +38,7 @@ const Quiz = () => {
       {shouldDisplayScore ?
         <Result
           score={score}
-          NumOfQuestions={data.length}
+          numOfQuestions={data.length}
         />
         :
         <Form onSubmit={checkUserAnswers}>
