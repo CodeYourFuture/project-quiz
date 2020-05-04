@@ -1,17 +1,21 @@
-import React, { useState } from 'react';
-import data from '../data/dummy.json';
-import { Button, Form, Container, Jumbotron } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router';
+import { Button, Form, Container, Jumbotron, Spinner } from 'react-bootstrap';
 import Question from './Question';
-import { shuffle } from '../helpers/shuffle';
-
-data.forEach(question => shuffle(question.answers));
-shuffle(data);
+import { retrieveData } from './retrieveData';
 
 const Quiz = () => {
+  const { quizName } = useParams();
+  const [data, setData] = useState([]);
   const [userAnswers, setUserAnswers] = useState({});
   const [score, setScore] = useState(0);
   const [shouldDisplayScore, setShouldDisplayScore] = useState(false);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+
+  useEffect(() => {
+    const quizData = retrieveData(quizName);
+    setData(quizData);
+  }, [quizName]);
 
   const handleAnswerSelect = e => {
     const selectedAnswer = { [e.target.name]: Number(e.target.value) };
@@ -30,8 +34,14 @@ const Quiz = () => {
     setScore(totalScore);
     setShouldDisplayScore(true);
   };
+
   const question = data[currentQuestionIndex];
-  return (
+
+  return data.length === 0 ? (
+    <div className="text-center my-5">
+      <Spinner animation="border" variant="primary" size="lg" />
+    </div>
+  ) : (
     <Container>
       <h1>CYF Quiz</h1>
       <Form onSubmit={checkUserAnswers}>
