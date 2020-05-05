@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import data from '../data/dummy.json';
 import { Button, Form, Container } from 'react-bootstrap';
 import Question from './Question';
-import Result from "./Result";
+import Result from './Result';
 import { shuffle } from '../helpers/shuffle';
 
 data.forEach(question => shuffle(question.answers));
@@ -35,42 +35,39 @@ const Quiz = () => {
   return (
     <Container>
       <h1>CYF Quiz</h1>
-      {shouldDisplayScore ?
-        <Result
-          score={score}
-          numOfQuestions={data.length}
-        />
-        :
-        <Form onSubmit={checkUserAnswers}>
-          <Question
-            key={question.id}
-            question={question}
-            handleAnswerSelect={handleAnswerSelect}
-            selectedAnswer={userAnswers[question.id]}
-          />
-          <Button
-            className="mr-2 mb-4"
-            variant="secondary"
-            disabled={currentQuestionIndex === 0}
-            onClick={() => setCurrentQuestionIndex(currentQuestionIndex - 1)}
-          >
-            Previous
-        </Button>
-          <Button
-            className="mr-2 mb-4"
-            variant="primary"
-            disabled={currentQuestionIndex === data.length - 1}
-            onClick={() => setCurrentQuestionIndex(currentQuestionIndex + 1)}
-          >
-            Next
-        </Button>
-          {Object.keys(userAnswers).length === data.length && (
-            <Button className="mb-4" variant="primary" type="submit">
-              Submit
-            </Button>
-          )}
-        </Form>
-      }
+      {shouldDisplayScore ? (
+        <Result score={score} numOfQuestions={data.length} />
+      ) : (
+          <Form onSubmit={checkUserAnswers}>
+            <Question
+              key={question.id}
+              question={question}
+              handleAnswerSelect={handleAnswerSelect}
+              selectedAnswer={userAnswers[question.id]}
+            />
+            <Button
+              className="mr-2 mb-4"
+              variant="secondary"
+              disabled={currentQuestionIndex === 0}
+              onClick={() => setCurrentQuestionIndex(currentQuestionIndex - 1)}
+            >
+              Previous
+          </Button>
+            <Button
+              className="mr-2 mb-4"
+              variant="primary"
+              disabled={currentQuestionIndex === data.length - 1}
+              onClick={() => setCurrentQuestionIndex(currentQuestionIndex + 1)}
+            >
+              Next
+          </Button>
+            {Object.keys(userAnswers).length === data.length && (
+              <Button className="mb-4" variant="primary" type="submit">
+                Submit
+              </Button>
+            )}
+          </Form>
+        )}
     </Container>
   );
 };

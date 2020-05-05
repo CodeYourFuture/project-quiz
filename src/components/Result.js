@@ -9,10 +9,10 @@ const Result = ({ score, numOfQuestions }) => {
           You have got {score} out of {numOfQuestions}
         </h2>
       </Jumbotron>
-      <Button variant="secondary" href="quiz">
+      <Button className="mr-2 mb-4" variant="secondary" href="quiz">
         Try again
       </Button>
-      <Button variant="primary">
+      <Button className="mb-4" variant="primary">
         Review answers
       </Button>
     </div>
