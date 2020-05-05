@@ -37,6 +37,7 @@ const NavigationBar = () => {
                 aria-hidden="true"
                 aria-label="HTML icon"
                 icon={faHtml5}
+                style={{ color: 'orange' }}
               />
               Html
             </NavDropdown.Item>
@@ -47,6 +48,7 @@ const NavigationBar = () => {
                 aria-hidden="true"
                 aria-label="CSS icon"
                 icon={faCss3}
+                style={{ color: 'orange' }}
               />
               Css
             </NavDropdown.Item>
@@ -57,6 +59,7 @@ const NavigationBar = () => {
                 aria-hidden="true"
                 aria-label="Javascript icon"
                 icon={faJs}
+                style={{ color: 'orange' }}
               />
               Javascript
             </NavDropdown.Item>
