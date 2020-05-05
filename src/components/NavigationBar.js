@@ -1,6 +1,9 @@
 import React from 'react';
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { Link, NavLink } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome } from '@fortawesome/free-solid-svg-icons';
+import { faHtml5, faCss3, faJs } from '@fortawesome/free-brands-svg-icons';
 
 const NavigationBar = () => {
   return (
@@ -12,6 +15,12 @@ const NavigationBar = () => {
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav>
           <Nav.Link as={NavLink} to="/" className="ml-5">
+            <FontAwesomeIcon
+              className="mr-2"
+              aria-hidden="true"
+              aria-label="Home icon"
+              icon={faHome}
+            />
             Home
           </Nav.Link>
           <Nav.Link as={NavLink} to="/about" className="ml-5">
@@ -23,14 +32,32 @@ const NavigationBar = () => {
             className="ml-5"
           >
             <NavDropdown.Item as={Link} to="/quiz">
+              <FontAwesomeIcon
+                className="mr-2"
+                aria-hidden="true"
+                aria-label="HTML icon"
+                icon={faHtml5}
+              />
               Html
             </NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item as={Link} to="#action/3.2">
+              <FontAwesomeIcon
+                className="mr-2"
+                aria-hidden="true"
+                aria-label="CSS icon"
+                icon={faCss3}
+              />
               Css
             </NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item as={Link} to="#action/3.3">
+              <FontAwesomeIcon
+                className="mr-2"
+                aria-hidden="true"
+                aria-label="Javascript icon"
+                icon={faJs}
+              />
               Javascript
             </NavDropdown.Item>
           </NavDropdown>
