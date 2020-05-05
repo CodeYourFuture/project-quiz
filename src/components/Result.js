@@ -6,7 +6,7 @@ const Result = ({ score, numOfQuestions }) => {
     <div>
       <Jumbotron>
         <h2>
-          You have got {score} out of {numOfQuestions}
+          You have got {score} out of {numOfQuestions}.
         </h2>
       </Jumbotron>
       <Button className="mr-2 mb-4" variant="secondary" href="quiz">
