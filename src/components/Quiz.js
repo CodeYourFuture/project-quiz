@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
-import { Button, Form, Container, Spinner } from 'react-bootstrap';
+import { Button, Form, Container } from 'react-bootstrap';
 import Question from './Question';
 import Result from './Result';
 import { retrieveQuizData } from './retrieveQuizData';
