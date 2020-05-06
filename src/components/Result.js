@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Jumbotron } from 'react-bootstrap';
 
-const Result = ({ score, numOfQuestions }) => {
+const Result = ({ score, numOfQuestions, quizName }) => {
   return (
     <div>
       <Jumbotron>
@@ -9,7 +9,7 @@ const Result = ({ score, numOfQuestions }) => {
           You have got {score} out of {numOfQuestions}.
         </h2>
       </Jumbotron>
-      <Button className="mr-2 mb-4" variant="secondary" href="quiz">
+      <Button className="mr-2 mb-4" variant="secondary" href={quizName}>
         Try again
       </Button>
       <Button className="mb-4" variant="primary">

@@ -46,7 +46,11 @@ const Quiz = () => {
     <Container>
       <h1>CYF Quiz</h1>
       {shouldDisplayScore ? (
-        <Result score={score} numOfQuestions={data.length} />
+        <Result
+          score={score}
+          numOfQuestions={data.length}
+          quizName={quizName}
+        />
       ) : (
         <Form onSubmit={checkUserAnswers}>
           <Question
