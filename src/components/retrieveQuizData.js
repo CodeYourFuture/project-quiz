@@ -6,8 +6,11 @@ import { shuffle } from '../helpers/shuffle';
 const data = { html: htmlQuiz, css: cssQuiz, js: jsQuiz };
 
 export const retrieveQuizData = quizName => {
-  const quizData = data[quizName];
-  quizData.forEach(question => shuffle(question.answers));
-  shuffle(quizData);
-  return quizData;
+  if (data[quizName]) {
+    const quizData = data[quizName];
+    quizData.forEach(question => shuffle(question.answers));
+    shuffle(quizData);
+    return quizData;
+  }
+  return [];
 };

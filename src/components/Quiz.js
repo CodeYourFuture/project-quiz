@@ -39,9 +39,9 @@ const Quiz = () => {
   const question = questions[currentQuestionIndex];
 
   return questions.length === 0 ? (
-    <div className="text-center my-5">
-      <Spinner animation="border" variant="primary" size="lg" />
-    </div>
+    <p className="text-center my-5">
+      Sorry, there are no questions to display.
+    </p>
   ) : (
     <Container>
       <h1>CYF Quiz</h1>

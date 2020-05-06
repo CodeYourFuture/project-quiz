@@ -7,7 +7,7 @@ import Quiz from '../components/Quiz';
 export default () => (
   <Switch>
     <Route exact path="/" component={Home} />
-    <Route path="/:quizName" component={Quiz} />
     <Route path="/about" component={About} />
+    <Route path="/:quizName" component={Quiz} />
   </Switch>
 );
