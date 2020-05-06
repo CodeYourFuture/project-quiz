@@ -11,18 +11,24 @@ const Home = () => {
       <p className="mb-0 h3">Take a quiz!</p>
       <ul className="list-unstyled my-4">
         <li>
-          <Link to="/html">
-            <Button className="mb-2 px-4 font-weight-bold">HTML</Button>
+          <Link
+            to="/html"
+            className="btn btn-primary mb-2 px-4 font-weight-bold"
+          >
+            HTML
           </Link>
         </li>
         <li>
-          <Link to="/css">
-            <Button className="mb-2 px-4 font-weight-bold">CSS</Button>
+          <Link
+            to="/css"
+            className="btn btn-primary mb-2 px-4 font-weight-bold"
+          >
+            CSS
           </Link>
         </li>
         <li>
-          <Link to="/js">
-            <Button className="mb-2 px-4 font-weight-bold">JavaScript</Button>
+          <Link to="/js" className="btn btn-primary mb-2 px-4 font-weight-bold">
+            JavaScript
           </Link>
         </li>
       </ul>
