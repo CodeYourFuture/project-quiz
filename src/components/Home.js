@@ -17,16 +17,12 @@ const Home = () => {
         </li>
         <li>
           <Link to="/css">
-            <Button className="mb-2 px-4 font-weight-bold" href="/css">
-              CSS
-            </Button>
+            <Button className="mb-2 px-4 font-weight-bold">CSS</Button>
           </Link>
         </li>
         <li>
           <Link to="/js">
-            <Button className="mb-2 px-4 font-weight-bold" href="/js">
-              JavaScript
-            </Button>
+            <Button className="mb-2 px-4 font-weight-bold">JavaScript</Button>
           </Link>
         </li>
       </ul>
