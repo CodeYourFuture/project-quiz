@@ -5,7 +5,7 @@ import { shuffle } from '../helpers/shuffle';
 
 const data = { html: htmlQuiz, css: cssQuiz, js: jsQuiz };
 
-export const retrieveData = quizName => {
+export const retrieveQuizData = quizName => {
   const quizData = data[quizName];
   quizData.forEach(question => shuffle(question.answers));
   shuffle(quizData);

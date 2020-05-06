@@ -3,19 +3,19 @@ import { useParams } from 'react-router';
 import { Button, Form, Container, Spinner } from 'react-bootstrap';
 import Question from './Question';
 import Result from './Result';
-import { retrieveData } from './retrieveData';
+import { retrieveQuizData } from './retrieveQuizData';
 
 const Quiz = () => {
   const { quizName } = useParams();
-  const [data, setData] = useState([]);
+  const [questions, setQuestions] = useState([]);
   const [userAnswers, setUserAnswers] = useState({});
   const [score, setScore] = useState(0);
   const [shouldDisplayScore, setShouldDisplayScore] = useState(false);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 
   useEffect(() => {
-    const quizData = retrieveData(quizName);
-    setData(quizData);
+    const quizData = retrieveQuizData(quizName);
+    setQuestions(quizData);
   }, [quizName]);
 
   const handleAnswerSelect = e => {
@@ -25,7 +25,7 @@ const Quiz = () => {
 
   const checkUserAnswers = e => {
     e.preventDefault();
-    const totalScore = data.reduce((point, question) => {
+    const totalScore = questions.reduce((point, question) => {
       const selectedAnswerId = userAnswers[question.id];
       const selectedAnswerObj = question.answers.find(
         answer => answer.id === selectedAnswerId,
@@ -36,9 +36,9 @@ const Quiz = () => {
     setShouldDisplayScore(true);
   };
 
-  const question = data[currentQuestionIndex];
+  const question = questions[currentQuestionIndex];
 
-  return data.length === 0 ? (
+  return questions.length === 0 ? (
     <div className="text-center my-5">
       <Spinner animation="border" variant="primary" size="lg" />
     </div>
@@ -48,7 +48,7 @@ const Quiz = () => {
       {shouldDisplayScore ? (
         <Result
           score={score}
-          numOfQuestions={data.length}
+          numOfQuestions={questions.length}
           quizName={quizName}
         />
       ) : (
@@ -70,12 +70,12 @@ const Quiz = () => {
           <Button
             className="mr-2 mb-4"
             variant="primary"
-            disabled={currentQuestionIndex === data.length - 1}
+            disabled={currentQuestionIndex === questions.length - 1}
             onClick={() => setCurrentQuestionIndex(currentQuestionIndex + 1)}
           >
             Next
           </Button>
-          {Object.keys(userAnswers).length === data.length && (
+          {Object.keys(userAnswers).length === questions.length && (
             <Button className="mb-4" variant="primary" type="submit">
               Submit
             </Button>
