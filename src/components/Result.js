@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
+import ReviewAnswers from './ReviewAnswers';
 import { Button, Jumbotron } from 'react-bootstrap';
 
-const Result = ({ score, numOfQuestions }) => {
-  return (
+const Result = ({ score, numOfQuestions, userAnswers, shuffledData }) => {
+  const [showReview, setShowReview] = useState(false);
+
+  return showReview ? (
+    <ReviewAnswers userAnswers={userAnswers} shuffledData={shuffledData} />
+  ) : (
     <div>
       <Jumbotron>
         <h2>
@@ -12,7 +17,11 @@ const Result = ({ score, numOfQuestions }) => {
       <Button className="mr-2 mb-4" variant="secondary" href="quiz">
         Try again
       </Button>
-      <Button className="mb-4" variant="primary">
+      <Button
+        className="mb-4"
+        variant="primary"
+        onClick={() => setShowReview(true)}
+      >
         Review answers
       </Button>
     </div>
