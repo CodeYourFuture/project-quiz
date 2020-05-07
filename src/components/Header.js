@@ -16,7 +16,7 @@ const Header = () => {
           <Nav.Link as={NavLink} to="/about" className="ml-5">
             About
           </Nav.Link>
-          <NavDropdown title="Quizzes" className="ml-5">
+          <NavDropdown title="Quizzes">
             <NavDropdown.Item as={Link} to="/quiz">
               <FontAwesomeIcon
                 className="mr-2"
