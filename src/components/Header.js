@@ -7,7 +7,7 @@ import { faHtml5, faCss3, faJs } from '@fortawesome/free-brands-svg-icons';
 
 const Header = () => {
   return (
-    <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
+    <Navbar collapseOnSelect expand="sm" bg="primary" variant="dark">
       <Navbar.Brand as={Link} to="/">
         CYF Quiz
       </Navbar.Brand>
