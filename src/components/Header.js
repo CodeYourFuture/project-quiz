@@ -7,17 +7,17 @@ import { faHtml5, faCss3, faJs } from '@fortawesome/free-brands-svg-icons';
 const Header = () => {
   return (
     <Navbar collapseOnSelect expand="sm" bg="primary" variant="dark">
-      <Navbar.Brand as={Link} to="/">
+      <Navbar.Brand as={Link} to="/" className="mr-5">
         CYF Quiz
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse>
         <Nav>
-          <Nav.Link as={NavLink} to="/about" className="ml-5">
+          <Nav.Link as={NavLink} to="/about">
             About
           </Nav.Link>
           <NavDropdown title="Quizzes">
-            <NavDropdown.Item as={Link} to="/quiz">
+            <NavDropdown.Item as={Link} to="/html">
               <FontAwesomeIcon
                 className="mr-2"
                 aria-hidden="true"
@@ -27,7 +27,7 @@ const Header = () => {
               HTML
             </NavDropdown.Item>
             <NavDropdown.Divider />
-            <NavDropdown.Item as={Link} to="#action/3.2">
+            <NavDropdown.Item as={Link} to="/css">
               <FontAwesomeIcon
                 className="mr-2"
                 aria-hidden="true"
@@ -37,7 +37,7 @@ const Header = () => {
               CSS
             </NavDropdown.Item>
             <NavDropdown.Divider />
-            <NavDropdown.Item as={Link} to="#action/3.3">
+            <NavDropdown.Item as={Link} to="/js">
               <FontAwesomeIcon
                 className="mr-2"
                 aria-hidden="true"
