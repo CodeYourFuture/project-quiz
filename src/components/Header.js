@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { faHtml5, faCss3, faJs } from '@fortawesome/free-brands-svg-icons';
 
-const NavigationBar = () => {
+const Header = () => {
   return (
     <Navbar collapseOnSelect expand="lg" bg="primary" variant="dark">
       <Navbar.Brand as={Link} to="/">
@@ -70,4 +70,4 @@ const NavigationBar = () => {
   );
 };
 
-export default NavigationBar;
+export default Header;
