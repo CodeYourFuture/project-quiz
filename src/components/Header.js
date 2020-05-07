@@ -11,16 +11,12 @@ const Header = () => {
         CYF Quiz
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-      <Navbar.Collapse id="responsive-navbar-nav">
+      <Navbar.Collapse>
         <Nav>
           <Nav.Link as={NavLink} to="/about" className="ml-5">
             About
           </Nav.Link>
-          <NavDropdown
-            title="Quizzes"
-            id="collasible-nav-dropdown"
-            className="ml-5"
-          >
+          <NavDropdown title="Quizzes" className="ml-5">
             <NavDropdown.Item as={Link} to="/quiz">
               <FontAwesomeIcon
                 className="mr-2"
