@@ -19,30 +19,27 @@ const Header = () => {
           <NavDropdown title="Quizzes">
             <NavDropdown.Item as={Link} to="/html">
               <FontAwesomeIcon
-                className="mr-2"
+                className="mr-2 text-warning"
                 aria-hidden="true"
                 icon={faHtml5}
-                style={{ color: 'orange' }}
               />
               HTML
             </NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item as={Link} to="/css">
               <FontAwesomeIcon
-                className="mr-2"
+                className="mr-2 text-warning"
                 aria-hidden="true"
                 icon={faCss3}
-                style={{ color: 'orange' }}
               />
               CSS
             </NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item as={Link} to="/js">
               <FontAwesomeIcon
-                className="mr-2"
+                className="mr-2 text-warning"
                 aria-hidden="true"
                 icon={faJs}
-                style={{ color: 'orange' }}
               />
               JavaScript
             </NavDropdown.Item>
