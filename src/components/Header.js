@@ -21,7 +21,6 @@ const Header = () => {
               <FontAwesomeIcon
                 className="mr-2"
                 aria-hidden="true"
-                aria-label="HTML icon"
                 icon={faHtml5}
                 style={{ color: 'orange' }}
               />
@@ -32,7 +31,6 @@ const Header = () => {
               <FontAwesomeIcon
                 className="mr-2"
                 aria-hidden="true"
-                aria-label="CSS icon"
                 icon={faCss3}
                 style={{ color: 'orange' }}
               />
@@ -43,7 +41,6 @@ const Header = () => {
               <FontAwesomeIcon
                 className="mr-2"
                 aria-hidden="true"
-                aria-label="Javascript icon"
                 icon={faJs}
                 style={{ color: 'orange' }}
               />
