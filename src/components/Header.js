@@ -24,7 +24,7 @@ const Header = () => {
                 icon={faHtml5}
                 style={{ color: 'orange' }}
               />
-              Html
+              HTML
             </NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item as={Link} to="#action/3.2">
@@ -34,7 +34,7 @@ const Header = () => {
                 icon={faCss3}
                 style={{ color: 'orange' }}
               />
-              Css
+              CSS
             </NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item as={Link} to="#action/3.3">
@@ -44,7 +44,7 @@ const Header = () => {
                 icon={faJs}
                 style={{ color: 'orange' }}
               />
-              Javascript
+              JavaScript
             </NavDropdown.Item>
           </NavDropdown>
         </Nav>
