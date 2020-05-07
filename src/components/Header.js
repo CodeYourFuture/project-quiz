@@ -2,7 +2,6 @@ import React from 'react';
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { Link, NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome } from '@fortawesome/free-solid-svg-icons';
 import { faHtml5, faCss3, faJs } from '@fortawesome/free-brands-svg-icons';
 
 const Header = () => {
@@ -14,15 +13,6 @@ const Header = () => {
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav>
-          <Nav.Link as={NavLink} to="/" className="ml-5">
-            <FontAwesomeIcon
-              className="mr-2"
-              aria-hidden="true"
-              aria-label="Home icon"
-              icon={faHome}
-            />
-            Home
-          </Nav.Link>
           <Nav.Link as={NavLink} to="/about" className="ml-5">
             About
           </Nav.Link>
