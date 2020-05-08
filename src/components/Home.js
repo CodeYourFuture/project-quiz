@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
@@ -9,9 +9,27 @@ const Home = () => {
       <p className="mb-0 h3">Are you ready for the next challenge?</p>
       <p className="mb-0 h3">Take a quiz!</p>
       <ul className="list-unstyled my-4">
-        <li><Button className="mb-2 px-4 font-weight-bold" href="quiz">HTML</Button></li>
-        <li><Button className="mb-2 px-4 font-weight-bold" href="quiz">CSS</Button></li>
-        <li><Button className="mb-2 px-4 font-weight-bold" href="quiz">JavaScript</Button></li>
+        <li>
+          <Link
+            to="/html"
+            className="btn btn-primary mb-2 px-4 font-weight-bold"
+          >
+            HTML
+          </Link>
+        </li>
+        <li>
+          <Link
+            to="/css"
+            className="btn btn-primary mb-2 px-4 font-weight-bold"
+          >
+            CSS
+          </Link>
+        </li>
+        <li>
+          <Link to="/js" className="btn btn-primary mb-2 px-4 font-weight-bold">
+            JavaScript
+          </Link>
+        </li>
       </ul>
     </main>
   );

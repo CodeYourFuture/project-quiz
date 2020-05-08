@@ -2,9 +2,10 @@ import React from 'react';
 import { Button, Card } from 'react-bootstrap';
 
 const ReviewAnswers = ({
-  userAnswers,
-  shuffledData,
   score,
+  questions,
+  quizName,
+  userAnswers,
   numOfQuestions,
 }) => {
   return (
@@ -20,7 +21,7 @@ const ReviewAnswers = ({
             </div>
           </div>
           <ol>
-            {shuffledData.map(question => {
+            {questions.map(question => {
               return (
                 <Card className="mr-2 mb-4">
                   <Card.Body>
@@ -56,7 +57,7 @@ const ReviewAnswers = ({
           </ol>
         </Card.Body>
       </Card>
-      <Button className="mt-4 mr-2 mb-4" variant="secondary" href="quiz">
+      <Button className="mt-4 mr-2 mb-4" variant="secondary" href={quizName}>
         Try again
       </Button>
     </div>

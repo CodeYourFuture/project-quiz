@@ -1,18 +1,22 @@
-import React, { useState } from 'react';
-import data from '../data/dummy.json';
-import { Button, Form, Container } from 'react-bootstrap';
-import Question from './Question';
+import React, { useState, useEffect } from 'react';
 import Result from './Result';
-import { shuffle } from '../helpers/shuffle';
-
-data.forEach(question => shuffle(question.answers));
-shuffle(data);
+import Question from './Question';
+import { useParams } from 'react-router';
+import { retrieveQuizData } from './retrieveQuizData';
+import { Button, Form, Container } from 'react-bootstrap';
 
 const Quiz = () => {
-  const [userAnswers, setUserAnswers] = useState({});
+  const { quizName } = useParams();
   const [score, setScore] = useState(0);
+  const [questions, setQuestions] = useState([]);
+  const [userAnswers, setUserAnswers] = useState({});
   const [shouldDisplayScore, setShouldDisplayScore] = useState(false);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+
+  useEffect(() => {
+    const quizData = retrieveQuizData(quizName);
+    setQuestions(quizData);
+  }, [quizName]);
 
   const handleAnswerSelect = e => {
     const selectedAnswer = { [e.target.name]: Number(e.target.value) };
@@ -21,7 +25,7 @@ const Quiz = () => {
 
   const checkUserAnswers = e => {
     e.preventDefault();
-    const totalScore = data.reduce((point, question) => {
+    const totalScore = questions.reduce((point, question) => {
       const selectedAnswerId = userAnswers[question.id];
       const selectedAnswerObj = question.answers.find(
         answer => answer.id === selectedAnswerId,
@@ -31,16 +35,23 @@ const Quiz = () => {
     setScore(totalScore);
     setShouldDisplayScore(true);
   };
-  const question = data[currentQuestionIndex];
-  return (
+
+  const question = questions[currentQuestionIndex];
+
+  return questions.length === 0 ? (
+    <p className="text-center my-5">
+      Sorry, there are no questions to display.
+    </p>
+  ) : (
     <Container>
       <h1>CYF Quiz</h1>
       {shouldDisplayScore ? (
         <Result
           score={score}
-          numOfQuestions={data.length}
+          quizName={quizName}
+          questions={questions}
           userAnswers={userAnswers}
-          shuffledData={data}
+          numOfQuestions={questions.length}
         />
       ) : (
         <Form onSubmit={checkUserAnswers}>
@@ -61,12 +72,12 @@ const Quiz = () => {
           <Button
             className="mr-2 mb-4"
             variant="primary"
-            disabled={currentQuestionIndex === data.length - 1}
+            disabled={currentQuestionIndex === questions.length - 1}
             onClick={() => setCurrentQuestionIndex(currentQuestionIndex + 1)}
           >
             Next
           </Button>
-          {Object.keys(userAnswers).length === data.length && (
+          {Object.keys(userAnswers).length === questions.length && (
             <Button className="mb-4" variant="primary" type="submit">
               Submit
             </Button>
