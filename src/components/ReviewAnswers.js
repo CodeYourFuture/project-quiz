@@ -1,18 +1,24 @@
 import React from 'react';
-import { Button, Card, Container, Jumbotron } from 'react-bootstrap';
+import { Button, Card } from 'react-bootstrap';
 
-const ReviewAnswers = ({ userAnswers, shuffledData }) => {
-  // display all Q and Ans using data array
-  // each question answers
-
-  // make all true answers green
-  // make wrong answers red
-
+const ReviewAnswers = ({
+  userAnswers,
+  shuffledData,
+  score,
+  numOfQuestions,
+}) => {
   return (
     <div>
       <Card>
         <Card.Body>
-          <Card.Title className="text-center">Review answers</Card.Title>
+          <div class="row">
+            <div class="col-6">
+              <Card.Title className="text-center"> Review answers </Card.Title>
+            </div>
+            <div className="col-6 text-center">
+              Score : {score} / {numOfQuestions}
+            </div>
+          </div>
           <ol>
             {shuffledData.map(question => {
               return (

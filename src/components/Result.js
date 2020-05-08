@@ -6,7 +6,12 @@ const Result = ({ score, numOfQuestions, userAnswers, shuffledData }) => {
   const [showReview, setShowReview] = useState(false);
 
   return showReview ? (
-    <ReviewAnswers userAnswers={userAnswers} shuffledData={shuffledData} />
+    <ReviewAnswers
+      userAnswers={userAnswers}
+      shuffledData={shuffledData}
+      numOfQuestions={numOfQuestions}
+      score={score}
+    />
   ) : (
     <div>
       <Jumbotron>
