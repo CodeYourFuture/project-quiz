@@ -24,7 +24,6 @@ const Footer = () => {
                 <FontAwesomeIcon
                   className="mr-2"
                   aria-hidden="true"
-                  aria-label="Github icon"
                   icon={faGithub}
                 />
                 Github
