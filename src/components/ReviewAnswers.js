@@ -20,17 +20,15 @@ const ReviewAnswers = ({
 }) => {
   return (
     <div>
-      <div>
-        <h3>
-          Your score is : {score} / {numOfQuestions}
-        </h3>
-      </div>
+      <p>
+        Your score is: {score} / {numOfQuestions}
+      </p>
       {questions.map(question => (
-        <Card>
+        <Card className="mb-4">
           <Card.Body>
             <Card.Title>{question.text}</Card.Title>
             <Card.Text>
-              <ul>
+              <ul className="mb-0">
                 {question.answers.map(answer => (
                   <li
                     className={getAnswersClass(question, userAnswers, answer)}
@@ -43,7 +41,7 @@ const ReviewAnswers = ({
           </Card.Body>
         </Card>
       ))}
-      <Button className="my-2" variant="primary" href={quizName}>
+      <Button className="mb-4" variant="primary" href={quizName}>
         Try again
       </Button>
     </div>
