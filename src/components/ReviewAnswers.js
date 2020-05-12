@@ -43,7 +43,7 @@ const ReviewAnswers = ({
           </Card.Body>
         </Card>
       ))}
-      <Button className="my-2 mr-2" variant="primary" href={quizName}>
+      <Button className="my-2" variant="primary" href={quizName}>
         Try again
       </Button>
     </div>
