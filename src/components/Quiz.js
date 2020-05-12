@@ -36,6 +36,12 @@ const Quiz = () => {
     setShouldDisplayScore(true);
   };
 
+  const quizDisplayText = {
+    html: 'HTML',
+    css: 'CSS',
+    js: 'JavaScript',
+  };
+
   const question = questions[currentQuestionIndex];
 
   return questions.length === 0 ? (
@@ -44,7 +50,7 @@ const Quiz = () => {
     </p>
   ) : (
     <Container>
-      <h1>{quizName} Quiz</h1>
+      <h1>{quizDisplayText[quizName]} quiz</h1>
       {shouldDisplayScore ? (
         <Result
           score={score}

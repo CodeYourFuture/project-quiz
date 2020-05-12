@@ -11,7 +11,7 @@ const Home = () => {
       <ul className="list-unstyled my-4">
         <li>
           <Link
-            to="/HTML"
+            to="/html"
             className="btn btn-primary mb-2 px-4 font-weight-bold"
           >
             HTML
@@ -19,17 +19,14 @@ const Home = () => {
         </li>
         <li>
           <Link
-            to="/CSS"
+            to="/css"
             className="btn btn-primary mb-2 px-4 font-weight-bold"
           >
             CSS
           </Link>
         </li>
         <li>
-          <Link
-            to="/JavaScript"
-            className="btn btn-primary mb-2 px-4 font-weight-bold"
-          >
+          <Link to="/js" className="btn btn-primary mb-2 px-4 font-weight-bold">
             JavaScript
           </Link>
         </li>
