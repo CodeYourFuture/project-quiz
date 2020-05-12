@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
 
-const ReviewAnswersClass = (question, userAnswers, answer) => {
+const CheckAnswersClass = (question, userAnswers, answer) => {
   if (answer.isCorrect) {
     return 'text-success';
   } else if (userAnswers[question.id] === answer.id) {
@@ -29,7 +29,7 @@ const ReviewAnswers = ({ questions, quizName, userAnswers }) => {
                   {question.answers.map(answer => {
                     return (
                       <li
-                        className={ReviewAnswersClass(
+                        className={CheckAnswersClass(
                           question,
                           userAnswers,
                           answer,
