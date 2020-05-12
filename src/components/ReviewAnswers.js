@@ -1,63 +1,51 @@
 import React from 'react';
 import { Button, Card } from 'react-bootstrap';
 
-const ReviewAnswers = ({
-  score,
-  questions,
-  quizName,
-  userAnswers,
-  numOfQuestions,
-}) => {
+const ReviewAnswersClass = (question, userAnswers, answer) => {
+  if (answer.isCorrect) {
+    return 'text-success';
+  } else if (userAnswers[question.id] === answer.id) {
+    return 'text-danger';
+  } else {
+    return '';
+  }
+};
+
+const ReviewAnswers = ({ questions, quizName, userAnswers }) => {
   return (
     <div>
-      <Card>
-        <Card.Body>
-          <div class="row">
-            <div class="col-6">
-              <Card.Title className="text-center"> Review answers </Card.Title>
-            </div>
-            <div className="col-6 text-center">
-              Score : {score} / {numOfQuestions}
-            </div>
-          </div>
-          <ol>
-            {questions.map(question => {
-              return (
-                <Card className="mr-2 mb-4">
-                  <Card.Body>
-                    <Card.Text>
-                      <div
-                        className="p-4 mb-3"
-                        style={{ backgroundColor: 'lightGrey' }}
+      {questions.map(question => {
+        return (
+          <Card className="mr-2 mb-2">
+            <Card.Body>
+              <Card.Text>
+                <div
+                  className="p-2 mb-2"
+                  style={{ backgroundColor: 'lightGrey' }}
+                >
+                  <Card.Title>{question.text}</Card.Title>
+                </div>
+                <ul>
+                  {question.answers.map(answer => {
+                    return (
+                      <li
+                        className={ReviewAnswersClass(
+                          question,
+                          userAnswers,
+                          answer,
+                        )}
                       >
-                        <li>{question.text}</li>
-                      </div>
-                      <ul>
-                        {question.answers.map(answer => {
-                          return (
-                            <li
-                              className={
-                                answer.isCorrect
-                                  ? 'text-success'
-                                  : userAnswers[question.id] === answer.id
-                                  ? 'text-danger'
-                                  : ''
-                              }
-                            >
-                              {answer.text}
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    </Card.Text>
-                  </Card.Body>
-                </Card>
-              );
-            })}
-          </ol>
-        </Card.Body>
-      </Card>
-      <Button className="mt-4 mr-2 mb-4" variant="secondary" href={quizName}>
+                        {answer.text}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        );
+      })}
+      <Button className="my-2 mr-2" variant="primary" href={quizName}>
         Try again
       </Button>
     </div>

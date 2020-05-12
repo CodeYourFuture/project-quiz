@@ -3,7 +3,7 @@ import cssQuiz from '../data/cssQuiz.json';
 import jsQuiz from '../data/jsQuiz.json';
 import { shuffle } from '../helpers/shuffle';
 
-const data = { html: htmlQuiz, css: cssQuiz, js: jsQuiz };
+const data = { HTML: htmlQuiz, CSS: cssQuiz, JavaScript: jsQuiz };
 
 export const retrieveQuizData = quizName => {
   if (data[quizName]) {

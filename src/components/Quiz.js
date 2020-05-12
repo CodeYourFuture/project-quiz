@@ -44,7 +44,7 @@ const Quiz = () => {
     </p>
   ) : (
     <Container>
-      <h1>CYF Quiz</h1>
+      <h1>{quizName} Quiz</h1>
       {shouldDisplayScore ? (
         <Result
           score={score}
