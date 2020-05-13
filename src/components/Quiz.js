@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router';
-import { Button, Form, Container } from 'react-bootstrap';
-import Question from './Question';
 import Result from './Result';
+import Question from './Question';
+import { useParams } from 'react-router';
 import { retrieveQuizData } from './retrieveQuizData';
+import { Button, Form, Container } from 'react-bootstrap';
 
 const Quiz = () => {
   const { quizName } = useParams();
+  const [score, setScore] = useState(0);
   const [questions, setQuestions] = useState([]);
   const [userAnswers, setUserAnswers] = useState({});
-  const [score, setScore] = useState(0);
   const [shouldDisplayScore, setShouldDisplayScore] = useState(false);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 
@@ -36,6 +36,12 @@ const Quiz = () => {
     setShouldDisplayScore(true);
   };
 
+  const quizDisplayText = {
+    html: 'HTML',
+    css: 'CSS',
+    js: 'JavaScript',
+  };
+
   const question = questions[currentQuestionIndex];
 
   return questions.length === 0 ? (
@@ -44,12 +50,14 @@ const Quiz = () => {
     </p>
   ) : (
     <Container>
-      <h1>CYF Quiz</h1>
+      <h1>{quizDisplayText[quizName]} quiz</h1>
       {shouldDisplayScore ? (
         <Result
           score={score}
-          numOfQuestions={questions.length}
           quizName={quizName}
+          questions={questions}
+          userAnswers={userAnswers}
+          numOfQuestions={questions.length}
         />
       ) : (
         <Form onSubmit={checkUserAnswers}>
