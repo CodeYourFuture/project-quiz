@@ -15,9 +15,9 @@ const Question = ({ question, handleAnswerSelect, selectedAnswer }) => {
                 id={`${question.id}.${answer.id}`}
                 name={question.id}
                 value={answer.id}
-                onChange={handleAnswerSelect}
+                onChange={e => handleAnswerSelect(e, question.type)}
                 label={`${answer.text}`}
-                checked={answer.id === selectedAnswer}
+                checked={selectedAnswer && selectedAnswer.includes(answer.id)}
               />
             );
           })}

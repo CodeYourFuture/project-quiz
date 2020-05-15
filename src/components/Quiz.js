@@ -18,19 +18,52 @@ const Quiz = () => {
     setQuestions(quizData);
   }, [quizName]);
 
-  const handleAnswerSelect = e => {
-    const selectedAnswer = { [e.target.name]: Number(e.target.value) };
+  const handleAnswerSelect = (e, type) => {
+    let selectedAnswer;
+    if (Object.keys(userAnswers).length && type === 'checkbox') {
+      for (const questionId in userAnswers) {
+        if (questionId === e.target.name) {
+          const previousAnswers = userAnswers[questionId];
+          const isPreviouslySelected = previousAnswers.filter(
+            answer => answer === Number(e.target.value),
+          );
+          if (isPreviouslySelected.length) {
+            const removePreviousAnswer = previousAnswers.filter(
+              answer => answer !== Number(e.target.value),
+            );
+            selectedAnswer = {
+              [e.target.name]: removePreviousAnswer,
+            };
+          } else {
+            selectedAnswer = {
+              [e.target.name]: [...previousAnswers, Number(e.target.value)],
+            };
+          }
+        } else {
+          selectedAnswer = { [e.target.name]: [Number(e.target.value)] };
+        }
+      }
+    } else {
+      selectedAnswer = { [e.target.name]: [Number(e.target.value)] };
+    }
     setUserAnswers({ ...userAnswers, ...selectedAnswer });
   };
 
   const checkUserAnswers = e => {
     e.preventDefault();
     const totalScore = questions.reduce((point, question) => {
-      const selectedAnswerId = userAnswers[question.id];
-      const selectedAnswerObj = question.answers.find(
-        answer => answer.id === selectedAnswerId,
-      );
-      return selectedAnswerObj.isCorrect ? point + 1 : point;
+      const selectedAnswer = userAnswers[question.id];
+      const correctAnswer = question.answers
+        .filter(ans => ans.isCorrect)
+        .map(correctAns => correctAns.id);
+
+      let isRight = false;
+      if (selectedAnswer.length === correctAnswer.length) {
+        isRight = selectedAnswer.every(
+          answer => correctAnswer.indexOf(answer) !== -1,
+        );
+      }
+      return isRight ? point + 1 : point;
     }, 0);
     setScore(totalScore);
     setShouldDisplayScore(true);
