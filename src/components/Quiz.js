@@ -18,31 +18,38 @@ const Quiz = () => {
     setQuestions(quizData);
   }, [quizName]);
 
-  const handleAnswerSelect = (e, type) => {
-    let selectedAnswer;
-    if (Object.keys(userAnswers).length && type === 'checkbox') {
-      for (const questionId in userAnswers) {
-        if (questionId === e.target.name) {
-          const previousAnswers = userAnswers[questionId];
-          const isPreviouslySelected = previousAnswers.filter(
-            answer => answer === Number(e.target.value),
+  const handleCheckboxAnswers = (e, answers) => {
+    let checkedAnswer;
+    for (const questionId in answers) {
+      if (questionId === e.target.name) {
+        const previousAnswers = answers[questionId];
+        const isPreviouslySelected = previousAnswers.filter(
+          answer => answer === Number(e.target.value),
+        );
+        if (isPreviouslySelected.length) {
+          const removePreviousAnswer = previousAnswers.filter(
+            answer => answer !== Number(e.target.value),
           );
-          if (isPreviouslySelected.length) {
-            const removePreviousAnswer = previousAnswers.filter(
-              answer => answer !== Number(e.target.value),
-            );
-            selectedAnswer = {
-              [e.target.name]: removePreviousAnswer,
-            };
-          } else {
-            selectedAnswer = {
-              [e.target.name]: [...previousAnswers, Number(e.target.value)],
-            };
-          }
+          checkedAnswer = {
+            [e.target.name]: removePreviousAnswer,
+          };
         } else {
-          selectedAnswer = { [e.target.name]: [Number(e.target.value)] };
+          checkedAnswer = {
+            [e.target.name]: [...previousAnswers, Number(e.target.value)],
+          };
         }
+      } else {
+        checkedAnswer = { [e.target.name]: [Number(e.target.value)] };
       }
+    }
+    return checkedAnswer;
+  };
+
+  const handleAnswerSelect = (e, type) => {
+    const answers = userAnswers;
+    let selectedAnswer;
+    if (Object.keys(answers).length && type === 'checkbox') {
+      selectedAnswer = handleCheckboxAnswers(e, answers);
     } else {
       selectedAnswer = { [e.target.name]: [Number(e.target.value)] };
     }
