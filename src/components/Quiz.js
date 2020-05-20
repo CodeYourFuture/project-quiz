@@ -19,28 +19,32 @@ const Quiz = () => {
   }, [quizName]);
 
   const handleCheckboxAnswers = (e, answers) => {
+    const questionIds = Object.keys(answers || {});
+    console.log('questionIds', questionIds);
+    const currentQuestionId =
+      questionIds &&
+      questionIds.filter(id => Number(id) === Number(e.target.name))[0];
+
     let checkedAnswer;
-    for (const questionId in answers) {
-      if (questionId === e.target.name) {
-        const previousAnswers = answers[questionId];
-        const isPreviouslySelected = previousAnswers.filter(
-          answer => answer === Number(e.target.value),
+    if (currentQuestionId === e.target.name) {
+      const previousSelectedAnswers = answers[currentQuestionId];
+      const isPreviouslySelected = previousSelectedAnswers.filter(
+        answer => answer === Number(e.target.value),
+      );
+      if (isPreviouslySelected.length) {
+        const removePreviousAnswer = previousSelectedAnswers.filter(
+          answer => answer !== Number(e.target.value),
         );
-        if (isPreviouslySelected.length) {
-          const removePreviousAnswer = previousAnswers.filter(
-            answer => answer !== Number(e.target.value),
-          );
-          checkedAnswer = {
-            [e.target.name]: removePreviousAnswer,
-          };
-        } else {
-          checkedAnswer = {
-            [e.target.name]: [...previousAnswers, Number(e.target.value)],
-          };
-        }
+        checkedAnswer = {
+          [e.target.name]: removePreviousAnswer,
+        };
       } else {
-        checkedAnswer = { [e.target.name]: [Number(e.target.value)] };
+        checkedAnswer = {
+          [e.target.name]: [...previousSelectedAnswers, Number(e.target.value)],
+        };
       }
+    } else {
+      checkedAnswer = { [e.target.name]: [Number(e.target.value)] };
     }
     return checkedAnswer;
   };
