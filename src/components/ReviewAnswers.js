@@ -27,18 +27,16 @@ const ReviewAnswers = ({
         <Card key={question.id} className="mb-4">
           <Card.Body>
             <Card.Title>{question.text}</Card.Title>
-            <div>
-              <ul className="mb-0">
-                {question.answers.map(answer => (
-                  <li
-                    key={answer.id}
-                    className={getAnswersClass(question, userAnswers, answer)}
-                  >
-                    {answer.text}
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <ul className="mb-0">
+              {question.answers.map(answer => (
+                <li
+                  key={answer.id}
+                  className={getAnswersClass(question, userAnswers, answer)}
+                >
+                  {answer.text}
+                </li>
+              ))}
+            </ul>
           </Card.Body>
         </Card>
       ))}
