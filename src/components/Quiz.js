@@ -14,6 +14,9 @@ const Quiz = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 
   useEffect(() => {
+    setUserAnswers({});
+    setCurrentQuestionIndex(0);
+    setShouldDisplayScore(false);
     const quizData = retrieveQuizData(quizName);
     setQuestions(quizData);
   }, [quizName]);

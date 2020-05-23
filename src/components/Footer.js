@@ -53,7 +53,7 @@ const Footer = () => {
             <li>
               <a
                 className="footer-link text-white"
-                href="https://www.linkedin.com/mwlite/in/ahmed8merehil"
+                href="https://www.linkedin.com/in/ahmed8merehil/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
