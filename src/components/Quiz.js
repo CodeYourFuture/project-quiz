@@ -20,18 +20,16 @@ const Quiz = () => {
 
   const handleCheckboxAnswers = (e, answers) => {
     const questionIds = Object.keys(answers || {});
-    console.log('questionIds', questionIds);
-    const currentQuestionId =
-      questionIds &&
-      questionIds.filter(id => Number(id) === Number(e.target.name))[0];
+    const hasQPreviouslySelectedAnswers =
+      questionIds && questionIds.includes(e.target.name);
 
     let checkedAnswer;
-    if (currentQuestionId === e.target.name) {
-      const previousSelectedAnswers = answers[currentQuestionId];
-      const isPreviouslySelected = previousSelectedAnswers.filter(
-        answer => answer === Number(e.target.value),
+    if (hasQPreviouslySelectedAnswers) {
+      const previousSelectedAnswers = answers[e.target.name];
+      const isAnswerPreviouslySelected = previousSelectedAnswers.includes(
+        Number(e.target.value),
       );
-      if (isPreviouslySelected.length) {
+      if (isAnswerPreviouslySelected) {
         const removePreviousAnswer = previousSelectedAnswers.filter(
           answer => answer !== Number(e.target.value),
         );
@@ -50,10 +48,9 @@ const Quiz = () => {
   };
 
   const handleAnswerSelect = (e, type) => {
-    const answers = userAnswers;
     let selectedAnswer;
-    if (Object.keys(answers).length && type === 'checkbox') {
-      selectedAnswer = handleCheckboxAnswers(e, answers);
+    if (Object.keys(userAnswers).length && type === 'checkbox') {
+      selectedAnswer = handleCheckboxAnswers(e, userAnswers);
     } else {
       selectedAnswer = { [e.target.name]: [Number(e.target.value)] };
     }
@@ -63,17 +60,13 @@ const Quiz = () => {
   const checkUserAnswers = e => {
     e.preventDefault();
     const totalScore = questions.reduce((point, question) => {
-      const selectedAnswer = userAnswers[question.id];
-      const correctAnswer = question.answers
-        .filter(ans => ans.isCorrect)
-        .map(correctAns => correctAns.id);
-
-      let isRight = false;
-      if (selectedAnswer.length === correctAnswer.length) {
-        isRight = selectedAnswer.every(
-          answer => correctAnswer.indexOf(answer) !== -1,
-        );
-      }
+      const selectedAnswers = userAnswers[question.id];
+      const correctAnswers = question.answers
+        .map(answer => answer.isCorrect && answer.id)
+        .filter(Boolean);
+      const isRight = selectedAnswers.every(answer =>
+        correctAnswers.includes(answer),
+      );
       return isRight ? point + 1 : point;
     }, 0);
     setScore(totalScore);
