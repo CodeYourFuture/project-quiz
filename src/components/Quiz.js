@@ -22,7 +22,6 @@ const Quiz = () => {
     const questionIds = Object.keys(answers || {});
     const hasQPreviouslySelectedAnswers =
       questionIds && questionIds.includes(e.target.name);
-
     let checkedAnswer;
     if (hasQPreviouslySelectedAnswers) {
       const previousSelectedAnswers = answers[e.target.name];
@@ -60,12 +59,17 @@ const Quiz = () => {
   const checkUserAnswers = e => {
     e.preventDefault();
     const totalScore = questions.reduce((point, question) => {
-      const selectedAnswers = userAnswers[question.id];
+      const selectedAnswers = userAnswers[question.id].sort();
       const correctAnswers = question.answers
         .map(answer => answer.isCorrect && answer.id)
-        .filter(Boolean);
-      const isRight = selectedAnswers.every(answer =>
-        correctAnswers.includes(answer),
+        .filter(Boolean)
+        .sort();
+
+      const isRight = question.answers.every(answer =>
+        answer.isCorrect
+          ? selectedAnswers.includes(answer.id) &&
+            selectedAnswers.length === correctAnswers.length
+          : true,
       );
       return isRight ? point + 1 : point;
     }, 0);
