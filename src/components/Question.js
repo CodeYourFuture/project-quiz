@@ -17,7 +17,9 @@ const Question = ({ question, handleAnswerSelect, selectedAnswer }) => {
                 value={answer.id}
                 onChange={e => handleAnswerSelect(e, question.type)}
                 label={`${answer.text}`}
-                checked={selectedAnswer && selectedAnswer.includes(answer.id)}
+                checked={
+                  selectedAnswer ? selectedAnswer.includes(answer.id) : false
+                }
               />
             );
           })}
