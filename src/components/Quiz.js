@@ -19,39 +19,35 @@ const Quiz = () => {
   }, [quizName]);
 
   const handleCheckboxAnswers = (e, answers) => {
-    const questionIds = Object.keys(answers || {});
-    const hasQPreviouslySelectedAnswers =
-      questionIds && questionIds.includes(e.target.name);
     let checkedAnswer;
-    if (hasQPreviouslySelectedAnswers) {
-      const previousSelectedAnswers = answers[e.target.name];
-      const isAnswerPreviouslySelected = previousSelectedAnswers.includes(
-        Number(e.target.value),
+    const answerId = Number(e.target.value);
+    const previousSelectedAnswers = answers[e.target.name] || [];
+    const isAnswerPreviouslySelected = previousSelectedAnswers.includes(
+      answerId,
+    );
+
+    if (isAnswerPreviouslySelected) {
+      const removePreviousAnswer = previousSelectedAnswers.filter(
+        answer => answer !== answerId,
       );
-      if (isAnswerPreviouslySelected) {
-        const removePreviousAnswer = previousSelectedAnswers.filter(
-          answer => answer !== Number(e.target.value),
-        );
-        checkedAnswer = {
-          [e.target.name]: removePreviousAnswer,
-        };
-      } else {
-        checkedAnswer = {
-          [e.target.name]: [...previousSelectedAnswers, Number(e.target.value)],
-        };
-      }
+      checkedAnswer = {
+        [e.target.name]: removePreviousAnswer,
+      };
     } else {
-      checkedAnswer = { [e.target.name]: [Number(e.target.value)] };
+      checkedAnswer = {
+        [e.target.name]: [...previousSelectedAnswers, answerId],
+      };
     }
     return checkedAnswer;
   };
 
   const handleAnswerSelect = (e, type) => {
     let selectedAnswer;
-    if (Object.keys(userAnswers).length && type === 'checkbox') {
+    const answerId = Number(e.target.value);
+    if (type === 'checkbox') {
       selectedAnswer = handleCheckboxAnswers(e, userAnswers);
     } else {
-      selectedAnswer = { [e.target.name]: [Number(e.target.value)] };
+      selectedAnswer = { [e.target.name]: [answerId] };
     }
     setUserAnswers({ ...userAnswers, ...selectedAnswer });
   };
@@ -59,19 +55,11 @@ const Quiz = () => {
   const checkUserAnswers = e => {
     e.preventDefault();
     const totalScore = questions.reduce((point, question) => {
-      const selectedAnswers = userAnswers[question.id].sort();
-      const correctAnswers = question.answers
-        .map(answer => answer.isCorrect && answer.id)
-        .filter(Boolean)
-        .sort();
-
-      const isRight = question.answers.every(answer =>
-        answer.isCorrect
-          ? selectedAnswers.includes(answer.id) &&
-            selectedAnswers.length === correctAnswers.length
-          : true,
+      const selectedAnswers = userAnswers[question.id];
+      const isCorrect = question.answers.every(
+        answer => answer.isCorrect === selectedAnswers.includes(answer.id),
       );
-      return isRight ? point + 1 : point;
+      return isCorrect ? point + 1 : point;
     }, 0);
     setScore(totalScore);
     setShouldDisplayScore(true);
