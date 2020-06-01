@@ -19,36 +19,25 @@ const Quiz = () => {
   }, [quizName]);
 
   const handleCheckboxAnswers = (e, answers) => {
-    let checkedAnswer;
+    const questionId = e.target.name;
     const answerId = Number(e.target.value);
-    const previousSelectedAnswers = answers[e.target.name] || [];
-    const isAnswerPreviouslySelected = previousSelectedAnswers.includes(
-      answerId,
-    );
+    const previousSelectedAnswers = answers[questionId] || [];
 
-    if (isAnswerPreviouslySelected) {
-      const removePreviousAnswer = previousSelectedAnswers.filter(
-        answer => answer !== answerId,
-      );
-      checkedAnswer = {
-        [e.target.name]: removePreviousAnswer,
-      };
-    } else {
-      checkedAnswer = {
-        [e.target.name]: [...previousSelectedAnswers, answerId],
-      };
-    }
-    return checkedAnswer;
+    const newCheckboxAnswer = previousSelectedAnswers.includes(answerId)
+      ? previousSelectedAnswers.filter(answer => answer !== answerId)
+      : [...previousSelectedAnswers.concat(answerId)];
+    return {
+      [questionId]: newCheckboxAnswer,
+    };
   };
 
   const handleAnswerSelect = (e, type) => {
-    let selectedAnswer;
+    const questionId = e.target.name;
     const answerId = Number(e.target.value);
-    if (type === 'checkbox') {
-      selectedAnswer = handleCheckboxAnswers(e, userAnswers);
-    } else {
-      selectedAnswer = { [e.target.name]: [answerId] };
-    }
+    const selectedAnswer =
+      type === 'checkbox'
+        ? handleCheckboxAnswers(e, userAnswers)
+        : { [questionId]: [answerId] };
     setUserAnswers({ ...userAnswers, ...selectedAnswer });
   };
 
