@@ -1,7 +1,7 @@
 import React from 'react';
 import { Form, Jumbotron } from 'react-bootstrap';
 
-const Question = ({ question, handleAnswerSelect, selectedAnswer }) => {
+const Question = ({ question, handleAnswerSelect, selectedAnswer = [] }) => {
   return (
     <fieldset>
       <Jumbotron>
@@ -17,9 +17,7 @@ const Question = ({ question, handleAnswerSelect, selectedAnswer }) => {
                 value={answer.id}
                 onChange={e => handleAnswerSelect(e, question.type)}
                 label={`${answer.text}`}
-                checked={
-                  selectedAnswer ? selectedAnswer.includes(answer.id) : false
-                }
+                defaultChecked={selectedAnswer.includes(answer.id)}
               />
             );
           })}
