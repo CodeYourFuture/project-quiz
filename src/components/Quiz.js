@@ -25,7 +25,7 @@ const Quiz = () => {
 
     const newCheckboxAnswer = previousSelectedAnswers.includes(answerId)
       ? previousSelectedAnswers.filter(answer => answer !== answerId)
-      : [...previousSelectedAnswers.concat(answerId)];
+      : previousSelectedAnswers.concat(answerId);
     return {
       [questionId]: newCheckboxAnswer,
     };
