@@ -4,7 +4,7 @@ import { Button, Card } from 'react-bootstrap';
 const getAnswersClass = (question, userAnswers, answer) => {
   if (answer.isCorrect) {
     return 'text-success';
-  } else if (userAnswers[question.id] === answer.id) {
+  } else if (userAnswers[question.id].includes(answer.id)) {
     return 'text-danger';
   } else {
     return '';
