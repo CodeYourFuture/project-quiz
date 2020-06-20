@@ -1,7 +1,17 @@
 const express = require("express");
 const app = express();
+const mongoose = require("mongoose");
 
 app.get("/", (req, res) => res.send("Hello World!"));
+
+mongoose.connect("mongodb://localhost/quizzes", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+const db = mongoose.connection;
+db.on("error", (error) => console.error(error));
+db.once("open", () => console.log("connected to Database"));
 
 const port = process.env.PORT || 5000;
 
