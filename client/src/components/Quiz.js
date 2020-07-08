@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Result from './Result';
 import Question from './Question';
 import { useParams } from 'react-router';
-import { retrieveQuizData } from './retrieveQuizData';
+import { getData } from './retrieveQuizData';
 import { Button, Form, Container } from 'react-bootstrap';
 
 const Quiz = () => {
@@ -17,10 +17,14 @@ const Quiz = () => {
     setUserAnswers({});
     setCurrentQuestionIndex(0);
     setShouldDisplayScore(false);
-    const quizData = retrieveQuizData(quizName);
-    setQuestions(quizData);
+    getData(quizName)
+      .then(res => {
+        console.log('getData', res);
+        setQuestions(res);
+      })
+      .catch(err => console.log('Error', err));
   }, [quizName]);
-
+  console.log('data in state', questions);
   const handleCheckboxAnswers = (e, answers) => {
     const questionId = e.target.name;
     const answerId = Number(e.target.value);
@@ -62,8 +66,9 @@ const Quiz = () => {
     css: 'CSS',
     js: 'JavaScript',
   };
-
-  const question = questions[currentQuestionIndex];
+  console.log('question Index', questions[currentQuestionIndex]);
+  const question = questions[currentQuestionIndex].question;
+  const questionId = questions[currentQuestionIndex]._id;
 
   return questions.length === 0 ? (
     <p className="text-center my-5">
@@ -83,7 +88,7 @@ const Quiz = () => {
       ) : (
         <Form onSubmit={checkUserAnswers}>
           <Question
-            key={question.id}
+            key={questionId}
             question={question}
             handleAnswerSelect={handleAnswerSelect}
             selectedAnswer={userAnswers[question.id]}
