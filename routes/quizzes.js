@@ -15,8 +15,7 @@ router.get('/', async (req, res) => {
 
 //Creating a question
 router.post('/', async (req, res) => {
-  const { name, question } = req.body;
-  const quiz = new Quiz({ name, question });
+  const quiz = new Quiz(req.body);
   try {
     const newQuestion = await quiz.save();
     res.status(201).json(newQuestion);

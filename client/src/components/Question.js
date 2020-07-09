@@ -6,18 +6,18 @@ const Question = ({ question, handleAnswerSelect, selectedAnswer = [] }) => {
     <fieldset>
       <Jumbotron>
         <h2>{question.text}</h2>
-        <Form.Group key={question.id}>
+        <Form.Group key={question._id}>
           {question.answers.map(answer => {
             return (
               <Form.Check
-                key={answer.id}
-                type={question.type}
-                id={`${question.id}.${answer.id}`}
-                name={question.id}
-                value={answer.id}
-                onChange={e => handleAnswerSelect(e, question.type)}
+                key={answer._id}
+                type={question.qType}
+                id={`${question._id}.${answer._id}`}
+                name={question._id}
+                value={answer._id}
+                onChange={e => handleAnswerSelect(e, question.qType)}
                 label={`${answer.text}`}
-                defaultChecked={selectedAnswer.includes(answer.id)}
+                defaultChecked={selectedAnswer.includes(answer._id)}
               />
             );
           })}

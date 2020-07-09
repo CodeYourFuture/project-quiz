@@ -17,7 +17,6 @@ db.once('open', () => console.log('Connected to database'));
 app.use(morgan('tiny'));
 app.use(express.json());
 app.use('/quizzes', quizRouter);
-// app.use('/quizzes?quizName=', name);
 
 const port = process.env.PORT || 5000;
 

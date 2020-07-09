@@ -19,12 +19,11 @@ const Quiz = () => {
     setShouldDisplayScore(false);
     getData(quizName)
       .then(res => {
-        console.log('getData', res);
         setQuestions(res);
       })
       .catch(err => console.log('Error', err));
   }, [quizName]);
-  console.log('data in state', questions);
+
   const handleCheckboxAnswers = (e, answers) => {
     const questionId = e.target.name;
     const answerId = Number(e.target.value);
@@ -51,9 +50,9 @@ const Quiz = () => {
   const checkUserAnswers = e => {
     e.preventDefault();
     const totalScore = questions.reduce((point, question) => {
-      const selectedAnswers = userAnswers[question.id];
+      const selectedAnswers = userAnswers[question._id];
       const isCorrect = question.answers.every(
-        answer => answer.isCorrect === selectedAnswers.includes(answer.id),
+        answer => answer.isCorrect === selectedAnswers.includes(answer._id),
       );
       return isCorrect ? point + 1 : point;
     }, 0);
@@ -66,9 +65,8 @@ const Quiz = () => {
     css: 'CSS',
     js: 'JavaScript',
   };
-  console.log('question Index', questions[currentQuestionIndex]);
-  const question = questions[currentQuestionIndex].question;
-  const questionId = questions[currentQuestionIndex]._id;
+
+  const question = questions[currentQuestionIndex];
 
   return questions.length === 0 ? (
     <p className="text-center my-5">
@@ -88,10 +86,10 @@ const Quiz = () => {
       ) : (
         <Form onSubmit={checkUserAnswers}>
           <Question
-            key={questionId}
+            key={question._id}
             question={question}
             handleAnswerSelect={handleAnswerSelect}
-            selectedAnswer={userAnswers[question.id]}
+            selectedAnswer={userAnswers[question._id]}
           />
           <Button
             className="mr-2 mb-4"
