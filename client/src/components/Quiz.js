@@ -21,7 +21,7 @@ const Quiz = () => {
       .then(res => {
         setQuestions(res);
       })
-      .catch(err => console.log('Error', err));
+      .catch(err => {});
   }, [quizName]);
 
   const handleCheckboxAnswers = (e, answers) => {

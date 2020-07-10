@@ -1,3 +1,2 @@
-export const getData = quizName => {
-  return fetch(`/quizzes?quizName=${quizName}`).then(res => res.json());
-};
+export const getData = quizName =>
+  fetch(`/quizzes?quizName=${quizName}`).then(res => res.json());
