@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Result from './Result';
 import Question from './Question';
 import { useParams } from 'react-router';
-import { retrieveQuizData } from './retrieveQuizData';
+import { getData } from './retrieveQuizData';
 import { Button, Form, Container } from 'react-bootstrap';
 
 const Quiz = () => {
@@ -17,8 +17,11 @@ const Quiz = () => {
     setUserAnswers({});
     setCurrentQuestionIndex(0);
     setShouldDisplayScore(false);
-    const quizData = retrieveQuizData(quizName);
-    setQuestions(quizData);
+    getData(quizName)
+      .then(res => {
+        setQuestions(res);
+      })
+      .catch(err => {});
   }, [quizName]);
 
   const handleCheckboxAnswers = (e, answers) => {
@@ -47,9 +50,9 @@ const Quiz = () => {
   const checkUserAnswers = e => {
     e.preventDefault();
     const totalScore = questions.reduce((point, question) => {
-      const selectedAnswers = userAnswers[question.id];
+      const selectedAnswers = userAnswers[question._id];
       const isCorrect = question.answers.every(
-        answer => answer.isCorrect === selectedAnswers.includes(answer.id),
+        answer => answer.isCorrect === selectedAnswers.includes(answer._id),
       );
       return isCorrect ? point + 1 : point;
     }, 0);
@@ -83,10 +86,10 @@ const Quiz = () => {
       ) : (
         <Form onSubmit={checkUserAnswers}>
           <Question
-            key={question.id}
+            key={question._id}
             question={question}
             handleAnswerSelect={handleAnswerSelect}
-            selectedAnswer={userAnswers[question.id]}
+            selectedAnswer={userAnswers[question._id]}
           />
           <Button
             className="mr-2 mb-4"

@@ -4,7 +4,7 @@ import { Button, Card } from 'react-bootstrap';
 const getAnswersClass = (question, userAnswers, answer) => {
   if (answer.isCorrect) {
     return 'text-success';
-  } else if (userAnswers[question.id].includes(answer.id)) {
+  } else if (userAnswers[question._id].includes(answer._id)) {
     return 'text-danger';
   } else {
     return '';
@@ -24,13 +24,13 @@ const ReviewAnswers = ({
         Your score is: {score} / {numOfQuestions}
       </p>
       {questions.map(question => (
-        <Card key={question.id} className="mb-4">
+        <Card key={question._id} className="mb-4">
           <Card.Body>
             <Card.Title>{question.text}</Card.Title>
             <ul className="mb-0">
               {question.answers.map(answer => (
                 <li
-                  key={answer.id}
+                  key={answer._id}
                   className={getAnswersClass(question, userAnswers, answer)}
                 >
                   {answer.text}
