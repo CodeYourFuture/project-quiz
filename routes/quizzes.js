@@ -1,12 +1,15 @@
 const express = require('express');
 const router = express.Router();
 const Quiz = require('../models/quiz');
+const shuffle = require('../helpers/shuffle');
 
 //Getting all questions
 router.get('/', async (req, res) => {
   const { quizName } = req.query;
   try {
     const quizQuestions = await Quiz.find({ name: quizName });
+    quizQuestions.forEach(question => shuffle(question.answers));
+    shuffle(quizQuestions);
     res.status(200).json(quizQuestions);
   } catch (error) {
     res.status(500).json({ message: error.message });
