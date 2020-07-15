@@ -22,7 +22,6 @@ const About = () => {
         <li>AbdulKadir Awel</li>
         <li>Viktoriia Kosenko</li>
         <li>Ahmed Merehil</li>
-        <li>Ali Sonmez</li>
       </ul>
     </Container>
   );

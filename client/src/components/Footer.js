@@ -80,21 +80,6 @@ const Footer = () => {
                 Abdulkadir
               </a>
             </li>
-            <li>
-              <a
-                className="footer-link text-white"
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FontAwesomeIcon
-                  className="mr-2"
-                  aria-hidden="true"
-                  icon={faLinkedin}
-                />
-                Ali
-              </a>
-            </li>
           </ul>
         </section>
       </div>

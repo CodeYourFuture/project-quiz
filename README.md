@@ -2,13 +2,15 @@
 
 ## Description:
 
-This is a quiz web app which helps users to check their knowledge of CYF study material.
+This is a MERN quiz web app which helps users to check their knowledge of CYF study material.
 
 ## Installation:
 
 1. Clone files into your local machine using - `git clone https://github.com/CodeYourFuture/project-quiz.git`.
 2. Run `npm install` in your local terminal.
-3. Run `npm start` to run the app or open `http://localhost:3000` to view it in the browser.
+3. To install Mongo Seeding CLI `npm install -g mongo-seeding-cli`.
+4. Run to seed data to DB `seed --db-name quizzes --drop-database ./data-import`.
+5. Run `npm run dev` to run the app or open `http://localhost:3000` to view it in the browser.
 
 ## Running the tests:
 
@@ -17,6 +19,8 @@ TBC.
 ## Tech Used / Dependencies:
 
 - React
+- MongoDB
+- Node.js
 - HTML
 - CSS
 
