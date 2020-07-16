@@ -30,6 +30,14 @@ const Home = () => {
             JavaScript
           </Link>
         </li>
+        <li>
+          <Link
+            to="/node"
+            className="btn btn-primary mb-2 px-4 font-weight-bold"
+          >
+            Node.js
+          </Link>
+        </li>
       </ul>
     </main>
   );

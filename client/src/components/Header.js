@@ -43,6 +43,15 @@ const Header = () => {
               />
               JavaScript
             </NavDropdown.Item>
+            <NavDropdown.Divider />
+            <NavDropdown.Item as={Link} to="/node">
+              <FontAwesomeIcon
+                className="mr-2 text-warning"
+                aria-hidden="true"
+                icon={faJs}
+              />
+              Node.js
+            </NavDropdown.Item>
           </NavDropdown>
         </Nav>
       </Navbar.Collapse>
