@@ -410,4 +410,143 @@ module.exports = [
       },
     ],
   },
+  {
+    name: 'node',
+    text: 'What npm stands for?',
+    qType: 'radio',
+    answers: [
+      {
+        _id: 1,
+        text: 'Node Package Manager',
+        isCorrect: true,
+      },
+      {
+        _id: 2,
+        text: 'Node Project Manager',
+        isCorrect: false,
+      },
+      {
+        _id: 3,
+        text: 'New Project Manager',
+        isCorrect: false,
+      },
+      {
+        _id: 4,
+        text: 'New Package Manager',
+        isCorrect: false,
+      },
+    ],
+  },
+  {
+    name: 'node',
+    text: 'Node.js runs on __________',
+    qType: 'radio',
+    answers: [
+      {
+        _id: 1,
+        text: 'Client',
+        isCorrect: false,
+      },
+      {
+        _id: 2,
+        text: 'Server',
+        isCorrect: true,
+      },
+      {
+        _id: 3,
+        text: 'Both, server and client',
+        isCorrect: false,
+      },
+      {
+        _id: 4,
+        text: 'None of the above',
+        isCorrect: false,
+      },
+    ],
+  },
+
+  {
+    name: 'node',
+    text: 'Node.js is ________ by default.',
+    qType: 'radio',
+    answers: [
+      {
+        _id: 1,
+        text: 'Synchronous',
+        isCorrect: false,
+      },
+      {
+        _id: 2,
+        text: 'Multi-threaded',
+        isCorrect: false,
+      },
+      {
+        _id: 3,
+        text: 'Asynchronous',
+        isCorrect: true,
+      },
+      {
+        _id: 4,
+        text: 'None of the above',
+        isCorrect: false,
+      },
+    ],
+  },
+
+  {
+    name: 'node',
+    text:
+      'Which of the following core module is used to create a web server in Node.js?',
+    qType: 'radio',
+    answers: [
+      {
+        _id: 1,
+        text: 'fs',
+        isCorrect: false,
+      },
+      {
+        _id: 2,
+        text: 'url',
+        isCorrect: false,
+      },
+      {
+        _id: 3,
+        text: 'connect',
+        isCorrect: false,
+      },
+      {
+        _id: 4,
+        text: 'http',
+        isCorrect: true,
+      },
+    ],
+  },
+
+  {
+    name: 'node',
+    text: 'How to import module in Node.js?',
+    qType: 'radio',
+    answers: [
+      {
+        _id: 1,
+        text: 'Using require() function.',
+        isCorrect: true,
+      },
+      {
+        _id: 2,
+        text: 'Using module.import',
+        isCorrect: false,
+      },
+      {
+        _id: 3,
+        text: 'Using include() function',
+        isCorrect: false,
+      },
+      {
+        _id: 4,
+        text: 'Using app.use() function',
+        isCorrect: false,
+      },
+    ],
+  },
 ];

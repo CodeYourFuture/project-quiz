@@ -2,7 +2,12 @@ import React from 'react';
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { Link, NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHtml5, faCss3, faJs } from '@fortawesome/free-brands-svg-icons';
+import {
+  faHtml5,
+  faCss3,
+  faJs,
+  faNodeJs,
+} from '@fortawesome/free-brands-svg-icons';
 
 const Header = () => {
   return (
@@ -42,6 +47,15 @@ const Header = () => {
                 icon={faJs}
               />
               JavaScript
+            </NavDropdown.Item>
+            <NavDropdown.Divider />
+            <NavDropdown.Item as={Link} to="/node">
+              <FontAwesomeIcon
+                className="mr-2 text-warning"
+                aria-hidden="true"
+                icon={faNodeJs}
+              />
+              Node.js
             </NavDropdown.Item>
           </NavDropdown>
         </Nav>
