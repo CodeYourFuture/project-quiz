@@ -65,6 +65,7 @@ const Quiz = () => {
     css: 'CSS',
     js: 'JavaScript',
     node: 'Node.js',
+    react: 'React.js',
   };
 
   const question = questions[currentQuestionIndex];

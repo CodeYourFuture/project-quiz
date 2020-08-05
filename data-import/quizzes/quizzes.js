@@ -549,4 +549,142 @@ module.exports = [
       },
     ],
   },
+
+  {
+    name: 'react',
+    text: 'Which of the following is true when you call setState()?',
+    qType: 'radio',
+    answers: [
+      {
+        _id: 1,
+        text: 'Reloads the component',
+        isCorrect: false,
+      },
+      {
+        _id: 2,
+        text: 'Executes asynchronously',
+        isCorrect: true,
+      },
+      {
+        _id: 3,
+        text: 'Updates data alone',
+        isCorrect: false,
+      },
+      {
+        _id: 4,
+        text: 'Updates the Real DOM',
+        isCorrect: false,
+      },
+    ],
+  },
+  {
+    name: 'react',
+    text: 'what Is used to pass data to a component from outside?',
+    qType: 'radio',
+    answers: [
+      {
+        _id: 1,
+        text: 'setState',
+        isCorrect: false,
+      },
+      {
+        _id: 2,
+        text: 'state',
+        isCorrect: false,
+      },
+      {
+        _id: 3,
+        text: 'propTypes',
+        isCorrect: false,
+      },
+      {
+        _id: 4,
+        text: 'props',
+        isCorrect: true,
+      },
+    ],
+  },
+  {
+    name: 'react',
+    text: 'What is the attribute used to declare a CSS class in a JSX?',
+    qType: 'radio',
+    answers: [
+      {
+        _id: 1,
+        text: 'classname',
+        isCorrect: false,
+      },
+      {
+        _id: 2,
+        text: 'class',
+        isCorrect: false,
+      },
+      {
+        _id: 3,
+        text: 'className',
+        isCorrect: true,
+      },
+      {
+        _id: 4,
+        text: 'cssClass',
+        isCorrect: false,
+      },
+    ],
+  },
+  {
+    name: 'react',
+    text:
+      'How do you write an inline style specifying the font-size:12px and color:red; in JSX?',
+    qType: 'radio',
+    answers: [
+      {
+        _id: 1,
+        text: "style={{font-size:12,color:'red'}}",
+        isCorrect: false,
+      },
+      {
+        _id: 2,
+        text: "style={{fontSize:'12px',color:'red'}}",
+        isCorrect: true,
+      },
+      {
+        _id: 3,
+        text: "style={fontSize:'12px',color:'red'}",
+        isCorrect: false,
+      },
+      {
+        _id: 4,
+        text: "style={{font-size:12px,color:'red'}}",
+        isCorrect: false,
+      },
+    ],
+  },
+  {
+    name: 'react',
+    text:
+      'Which of the following is correct syntax for a button click event handler, foo?',
+    qType: 'radio',
+    answers: [
+      {
+        _id: 1,
+        text: '<button onclick={this.foo()}>',
+        isCorrect: false,
+      },
+      {
+        _id: 2,
+        text: '<button onclick={this.foo}>',
+        isCorrect: false,
+      },
+      {
+        _id: 3,
+        text: '<button onClick={this.foo()}>',
+        isCorrect: false,
+      },
+      {
+        _id: 4,
+        text: '<button onClick={this.foo}>',
+        isCorrect: true,
+      },
+    ],
+  },
 ];
