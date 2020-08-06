@@ -7,6 +7,7 @@ import {
   faCss3,
   faJs,
   faNodeJs,
+  faReact,
 } from '@fortawesome/free-brands-svg-icons';
 
 const Header = () => {
@@ -56,6 +57,15 @@ const Header = () => {
                 icon={faNodeJs}
               />
               Node.js
+            </NavDropdown.Item>
+            <NavDropdown.Divider />
+            <NavDropdown.Item as={Link} to="/react">
+              <FontAwesomeIcon
+                className="mr-2 text-warning"
+                aria-hidden="true"
+                icon={faReact}
+              />
+              React.js
             </NavDropdown.Item>
           </NavDropdown>
         </Nav>

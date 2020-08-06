@@ -38,6 +38,14 @@ const Home = () => {
             Node.js
           </Link>
         </li>
+        <li>
+          <Link
+            to="/react"
+            className="btn btn-primary mb-2 px-4 font-weight-bold"
+          >
+            React.js
+          </Link>
+        </li>
       </ul>
     </main>
   );
