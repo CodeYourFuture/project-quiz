@@ -4,6 +4,7 @@ import Question from './Question';
 import { useParams } from 'react-router';
 import { getData } from './retrieveQuizData';
 import { Button, Form, Container } from 'react-bootstrap';
+import Spinner from './Spinner';
 
 const Quiz = () => {
   const { quizName } = useParams();
@@ -71,9 +72,7 @@ const Quiz = () => {
   const question = questions[currentQuestionIndex];
 
   return questions.length === 0 ? (
-    <p className="text-center my-5">
-      Sorry, there are no questions to display.
-    </p>
+    <Spinner />
   ) : (
     <Container>
       <h1>{quizDisplayText[quizName]} quiz</h1>
