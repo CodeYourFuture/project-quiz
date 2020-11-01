@@ -69,7 +69,6 @@ body {
     &:before,
     &:after {
       border: 1px solid #0275d8;
-
       border-radius: 0;
     }
   }
@@ -79,12 +78,10 @@ body {
   label {
     &:before {
       border: 1px solid #0275d8;
-
       border-radius: 100%;
     }
     &:after {
       border: 1px solid #0275d8;
-
       border-radius: 100%;
     }
   }
