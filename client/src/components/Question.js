@@ -20,7 +20,7 @@ const Question = ({ question, handleAnswerSelect, selectedAnswer = [] }) => {
           <Form.Group className="bg-light px-1" key={question._id}>
             {question.answers.map(answer => {
               return (
-                <div className="border-bottom">
+                <div className="border-bottom border-white">
                   <Form.Check
                     key={answer._id}
                     type={question.qType}
