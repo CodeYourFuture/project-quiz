@@ -17,7 +17,7 @@ const Question = ({ question, handleAnswerSelect, selectedAnswer = [] }) => {
           {question.text}
         </Card.Header>
         <Card.Body className="bg-white">
-          <Form.Group className="bg-light bg- px-1" key={question._id}>
+          <Form.Group className="bg-light px-1" key={question._id}>
             {question.answers.map(answer => {
               return (
                 <div className="border-bottom">
