@@ -4,11 +4,17 @@ $headings-margin-bottom: 1rem;
 @import '~bootstrap/scss/bootstrap';
 
 body {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif, 'Times New Roman', Times, serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 12rem;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
