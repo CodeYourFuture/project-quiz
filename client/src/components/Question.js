@@ -2,13 +2,10 @@ import React from 'react';
 import { Form, Card } from 'react-bootstrap';
 
 const Question = ({ question, handleAnswerSelect, selectedAnswer = [] }) => {
-  const addClassName = question => {
-    if (question.qType === 'checkbox') {
-      return 'styled-input-square';
-    } else {
-      return 'styled-input-rounded';
-    }
-  };
+  const addClassName = question =>
+    question.qType === 'checkbox'
+      ? 'styled-input-square'
+      : 'styled-input-rounded';
 
   return (
     <fieldset>
