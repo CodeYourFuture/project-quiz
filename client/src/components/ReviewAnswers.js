@@ -104,7 +104,9 @@ const ReviewAnswers = ({
         <fieldset disabled>
           {questions.map(question => (
             <Card key={question._id} className="mb-4">
-              <Card.Header as="h5">{question.text}</Card.Header>
+              <Card.Header as="h2" className="h5">
+                {question.text}
+              </Card.Header>
               <Card.Body className="bg-white">
                 <Form.Group className="bg-light" key={question._id}>
                   <ul className="list-unstyled">

@@ -10,7 +10,7 @@ const Question = ({ question, handleAnswerSelect, selectedAnswer = [] }) => {
   return (
     <fieldset>
       <Card className="mb-3 rounded">
-        <Card.Header className="bg-secondary text-white" as="h5">
+        <Card.Header className="bg-secondary text-white h5" as="h2">
           {question.text}
         </Card.Header>
         <Card.Body className="bg-white">
