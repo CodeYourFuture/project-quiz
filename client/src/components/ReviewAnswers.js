@@ -108,7 +108,7 @@ const ReviewAnswers = ({
                 {question.text}
               </Card.Header>
               <Card.Body className="bg-white">
-                <Form.Group className="bg-light" key={question._id}>
+                <Form.Group className="bg-light">
                   <ul className="list-unstyled">
                     {question.answers.map(answer => {
                       const selectedAnswers = userAnswers[question._id];
