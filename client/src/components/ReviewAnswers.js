@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Card, Container } from 'react-bootstrap';
+import { Button, Card, Form, Container } from 'react-bootstrap';
 
 const getAnswersClass = (question, userAnswers, answer) => {
   if (answer.isCorrect) {
@@ -15,76 +15,21 @@ const getAnswersMark = (question, userAnswers, answer, selectedAnswers) => {
   if (answer.isCorrect) {
     if (selectedAnswers.includes(answer._id)) {
       return (
-        <span
-          style={{
-            fontSize: '2.5rem',
-            color: '#383838',
-            position: 'relative',
-            background: 'none',
-            bottom: '-0.5rem',
-            left: '0.3rem',
-          }}
-        >
-          &#x2610;
-          <span
-            style={{
-              fontSize: '1.5rem',
-              color: '#383838',
-              position: 'absolute',
-              bottom: '0.1rem',
-              left: '0.4rem',
-            }}
-          >
-            &#x2713;
-          </span>
+        <span className="empty-ballotBox">
+          <span className="check-mark"></span>
         </span>
       );
     } else {
-      return (
-        <span
-          style={{
-            fontSize: '2.5rem',
-            color: '#383838',
-            position: 'relative',
-            background: 'none',
-            bottom: '-0.5rem',
-            left: '0.3rem',
-          }}
-        >
-          &#x2610;
-        </span>
-      );
+      return <span className="empty-ballotBox"></span>;
     }
   } else if (userAnswers[question._id].includes(answer._id)) {
     return (
-      <span
-        style={{
-          fontSize: '2.5rem',
-          color: '#383838',
-          position: 'relative',
-          background: 'none',
-          bottom: '-0.5rem',
-          left: '0.3rem',
-        }}
-      >
-        &#9746;
+      <span className="empty-ballotBox">
+        <span className="cross-mark"></span>
       </span>
     );
   } else {
-    return (
-      <span
-        style={{
-          fontSize: '2.5rem',
-          color: '#383838',
-          position: 'relative',
-          background: 'none',
-          bottom: '-0.5rem',
-          left: '0.3rem',
-        }}
-      >
-        &#x2610;
-      </span>
-    );
+    return <span className="empty-ballotBox"></span>;
   }
 };
 

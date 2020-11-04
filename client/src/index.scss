@@ -99,6 +99,37 @@ body {
   }
 }
 
+.empty-ballotBox,
+.check-mark,
+.cross-mark {
+  font-size: 2rem;
+  color: #383838;
+  background: none;
+  bottom: -0.4rem;
+}
+
+.empty-ballotBox {
+  position: relative;
+  left: 0.2rem;
+}
+
+.check-mark,
+.cross-mark {
+  position: absolute;
+}
+
+.empty-ballotBox::after {
+  content: '\2610';
+}
+
+.check-mark::after {
+  content: '\2611';
+}
+
+.cross-mark::after {
+  content: '\2612';
+}
+
 footer {
   position: absolute;
   left: 0;
