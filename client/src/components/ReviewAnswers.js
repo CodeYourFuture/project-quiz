@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Card, Form, Container } from 'react-bootstrap';
+import { Button, Card, Container } from 'react-bootstrap';
 
 const getAnswersClass = (question, userAnswers, answer) => {
   if (answer.isCorrect) {
@@ -100,53 +100,41 @@ const ReviewAnswers = ({
       <p>
         Your score is: {score} / {numOfQuestions}
       </p>
-      <Form>
-        <fieldset disabled>
-          {questions.map(question => (
-            <Card key={question._id} className="mb-4">
-              <Card.Header as="h2" className="h5">
-                {question.text}
-              </Card.Header>
-              <Card.Body className="bg-white">
-                <Form.Group className="bg-light">
-                  <ul className="list-unstyled">
-                    {question.answers.map(answer => {
-                      const selectedAnswers = userAnswers[question._id];
-                      return (
-                        <li
-                          style={{
-                            borderBottom: '1px solid white',
-                            position: 'relative',
-                          }}
-                          key={answer._id}
-                          className={getAnswersClass(
-                            question,
-                            userAnswers,
-                            answer,
-                          )}
-                        >
-                          {getAnswersMark(
-                            question,
-                            userAnswers,
-                            answer,
-                            selectedAnswers,
-                          )}
-                          <label className="review-answers px-2">
-                            {answer.text}
-                          </label>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </Form.Group>
-              </Card.Body>
-            </Card>
-          ))}
-        </fieldset>
-        <Button className="mb-4" variant="primary" href={quizName}>
-          Try again
-        </Button>
-      </Form>
+      {questions.map(question => (
+        <Card key={question._id} className="mb-4">
+          <Card.Header as="h2" className="h5">
+            {question.text}
+          </Card.Header>
+          <Card.Body className="bg-white">
+            <ul className="list-unstyled">
+              {question.answers.map(answer => {
+                const selectedAnswers = userAnswers[question._id];
+                return (
+                  <li
+                    style={{
+                      borderBottom: '1px solid white',
+                      position: 'relative',
+                    }}
+                    key={answer._id}
+                    className={getAnswersClass(question, userAnswers, answer)}
+                  >
+                    {getAnswersMark(
+                      question,
+                      userAnswers,
+                      answer,
+                      selectedAnswers,
+                    )}
+                    <p className="review-answers px-2">{answer.text}</p>
+                  </li>
+                );
+              })}
+            </ul>
+          </Card.Body>
+        </Card>
+      ))}
+      <Button className="mb-4" variant="primary" href={quizName}>
+        Try again
+      </Button>
     </Container>
   );
 };
