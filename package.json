@@ -24,7 +24,7 @@
   "homepage": "https://github.com/CodeYourFuture/project-quiz#readme",
   "devDependencies": {
     "concurrently": "^5.2.0",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.20"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
